@@ -95,6 +95,96 @@
 
 <!-- WRITE YOUR CODE HERE -->
 
+<!-- Beginning of Jonathan's code-->
+
+
+<p>
+
+</p>
+<h2 style = "font-family: Arial Narrow Bold;">
+    Purchase a subscription today and join the Pebble Village family!
+</h2>
+
+<style>
+  /* CSS code */
+  .square {
+
+    width: 300px; 
+    height: 225px;
+    background-color: #5B9279;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+
+      /* Center the square */
+    position: relative; 
+
+    top: -20%;
+    left: 17.5%;
+    transform: translate(-17.5%, 20%);
+
+    border: 20px #123a17;
+
+    margin-right: 30px;
+    display: inline-block;
+
+  }
+
+  .inner-square {
+
+    width: 150px;
+    height: 30px;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-align: center;
+    line-height: 34px;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .square:hover {
+    background-color: #534D56;
+}
+
+  .square:hover .inner-square {
+    opacity: 1;
+}
+
+</style>
+<body>
+
+<!-- HTML code -->
+<div class="square" style="font-family: Arial Narrow Bold;">
+        Basic Package - $15.99/month
+  <div class="inner-square">
+    Buy Now!
+  </div>
+</div>
+
+<div class="square" style="font-family: Arial Narrow Bold;">
+    Convenience Package - $22.99/month
+    <div class="inner-square">
+        Buy Now!
+    </div>
+</div>
+
+<div class="square" style="font-family: Arial Narrow Bold;">
+    Platinum Package - $29.99/month
+    <div class="inner-square">
+        Buy Now!
+    </div>
+</div>
+
+</body>
+
+<!-- Ending of Jonathan's code-->
 
     <footer class="fixed-bottom py-5 mt-5" style="background-color: #534D56;">
         <div class="container text-light text-center">
