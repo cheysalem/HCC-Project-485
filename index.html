@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body style="height: fit-content;">
 
     <!-- <div class="container"></div> USE IF YOU WANT TO PUT IN CONTAINER -->
     <!-- nav bar class nav color light backgroung light -->
@@ -26,15 +26,14 @@
 
             <!-- class = make it a display inline block -->
             <a href="./index.html" class="navbar-brand mb-0 h1 ">
-                <img class="d-inline-block align-center" src="./logo2.PNG" width="80" height="80" />
+                <img class="d-inline-block align-center" src="./logo2.PNG" width="30" height="30" />
                 Pebble Village
-
             </a>
 
             <!-- nav bar button for smaller screens and toggle feature -->
             <!-- aria-label when hovered over says whats happening -->
             <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
-                aria-controls="navbarNav" aria-exopanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -91,36 +90,89 @@
 
             </div>
         </div>
-
-
-
     </nav>
+    <!-- for spacing -->
+    <div class="pb-5 pt-2 mt-2"></div>
 
+    <!-- picture carousel -->
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <!-- <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2"
+                aria-label="Slide 4"></button> -->
 
- <!-- WRITE YOUR CODE HERE -->
-
-
-    <footer class="fixed-bottom py-5 mt-5" style="background-color: #534D56;">
-        <div class="container text-light text-center">
-            <p class="display-5 mb-3">Pebble Village</p>
-            <small class="text-white-50">&copy; Copyright by Pebble Village. All rights reserved.</small>
         </div>
-    </footer>
 
 
+        
+
+        <div class="carousel-inner">
+            <div class="carousel-item active c-item">
+                <img src="./rockstack.jpg" class="d-block w-100 c-img " alt="slide 1">
+                <div class="carousel-caption top-5">
+                    <p class="mt-0 fs-4">A Rockin' Good Time for Your Beloved Pebbles</p>
+                    <h1 class="display-1 fw-bolder text-capitalize">Pebble Village Services</h1>
+                    <!-- <button class="btn btn-primary text-uppercase px-4 py-2 fs-5 mt-5" id="myButton">Check out our services </button> -->
+                    <a href="./pricing.html" class="btn btn-primary text-uppercase px-4 py-2 fs-5 mt-5"
+                        id="myButton">Check out our services</a>
+
+                </div>
+            </div>
+            <div class="carousel-item c-item">
+                <img src="./sandrock.jpg" class="d-block w-100 c-img " alt="slide 2">
+                <div class="carousel-caption top-5">
+                    <p class="mt-0 fs-4">A Rockin' Good Time for Your Beloved Pebbles</p>
+                    <h1 class="display-1 fw-bolder text-capitalize">Pebble Village Services</h1>
+                    <a href="./pricing.html" class="btn btn-primary text-uppercase px-4 py-2 fs-5 mt-5"
+                        id="myButton">Check out our services</a>
+
+                    <!-- <button class="btn btn-primary text-uppercase px-4 py-2 fs-5 mt-5" id="myButton">Check out our services  -->
+
+                    <!-- </button> -->
+
+                    </a>
+                </div>
+            </div>
+            <div class="carousel-item c-item">
+                <img src="./sparock.jpg" class="d-block w-100 c-img" alt="slide 3">
+                <div class="carousel-caption top-5">
+                    <p class="mt-0 fs-4">A Rockin' Good Time for Your Beloved Pebbles</p>
+                    <h1 class="display-1 fw-bolder text-capitalize">Pebble Village Services</h1>
+                    <!-- <button class="btn btn-primary text-uppercase px-4 py-2 fs-5 mt-5" id="myButton">Check out our services </button> -->
+                    <a href="./pricing.html" class="btn btn-primary text-uppercase px-4 py-2 fs-5 mt-5"
+                        id="myButton">Check out our services</a>
+
+                </div>
+            </div>
+
+            <!-- <div class="carousel-item">
+                <img src="./happyrock.jpg" class="d-block w-100" alt="slide 4">
+            </div> -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
 
+    <!-- for spacing -->
+    <div class="pb-5 pt-2 mt-2"></div>
 
-
-
-
-
-
-
-
-
-
-
+        <footer class="footer mt-auto pm py-4 mt-4" style="background-color: #534D56;">
+            <div class="container text-light text-center">
+                <p class="display-5 mb-3">Pebble Village</p>
+                <small class="text-white-50">&copy; Copyright by Pebble Village. All rights reserved.</small>
+            </div>
+        </footer>
+    
 
 </body>
 
