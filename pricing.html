@@ -101,7 +101,7 @@
 <p>
 
 </p>
-<h2 style = "font-family: Arial Narrow Bold;">
+<h2 style = "font-family: Arial Bold;">
     Purchase a subscription today and join the Pebble Village family!
 </h2>
 
@@ -116,7 +116,6 @@
     text-align: center;
     line-height: 50px;
 
-      /* Center the square */
     position: relative; 
 
     top: -10%;
@@ -141,12 +140,29 @@
     position: absolute;
     top: 85%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -85%);
     opacity: 0;
 
     transition: opacity 0.4s ease;
     z-index: 1;
     cursor: pointer;
+  }
+
+
+
+  .inner-content ul{
+    padding : 0px;
+  }
+  .inner-content li{
+    margin-bottom: -20px;
+    margin-left: 45px;
+    position: relative;
+    top: -30px;
+    text-align:left;
+  }
+
+  .inner-content p{
+    padding:0px;
   }
 
   .square:hover {
@@ -157,30 +173,132 @@
     opacity: 1;
 }
 
+.popup {
+    display: none;
+    position: fixed;
+    height: 275px;
+    width: 1000px;
+    top: 50%;
+    left: 50%;
+    color: #FFFFFF;
+    transform: translate(-50%, -50%);
+    background-color: #5B9279;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+  }
+
+.button{
+    margin-right: 30px;
+}
+
 </style>
 <body>
 
 <!-- HTML code -->
-<div class="square" style="font-family: Arial Narrow Bold;">
-        Basic Package - $15.99/month
-  <div class="inner-square">
+<div class="square" style="font-family: Arial Bold;">
+    <div class="inner-content">
+        <p>
+            Basic Package - $15.99/month
+            <ul>
+                <li>
+                    Access to Pebble Village facilities
+                </li>
+                <li>
+                    Scheduled feeding times included
+                </li>
+                <li>
+                    Availability to play and rest areas
+                </li>
+            </ul>
+        </p>
+    </div>
+  <div class="inner-square" onclick="openPopup()">
     Buy Now!
   </div>
 </div>
 
-<div class="square" style="font-family: Arial Narrow Bold;">
-    Convenience Package - $22.99/month
-    <div class="inner-square">
+<div class="square" style="font-family: Arial Bold;">
+    <div class="inner-content">
+        <p>
+            Convenience Package - $22.99/month
+            <ul>
+                <li>
+                    All features in Basic Package
+                </li>
+                <li>
+                    On-demand, at-home pet rock sitting
+                </li>
+                <li>
+                    Weekly, complete pet rock bath
+                </li>
+            </ul>
+        </p>
+    </div>
+    <div class="inner-square" onclick="openPopup()">
         Buy Now!
     </div>
 </div>
 
-<div class="square" style="font-family: Arial Narrow Bold;">
-    Platinum Package - $29.99/month
-    <div class="inner-square">
+<div class="square" style="font-family: Arial Bold;">
+    <div class="inner-content">
+        <p>
+            Platinum Package - $29.99/month
+            <ul>
+                <li>
+                    All features in Convenience Package
+                </li>
+                <li>
+                    Pet rock transport service
+                </li>
+                <li>
+                    VIP area access
+                </li>
+            </ul>
+        </p>
+    </div>
+    <div class="inner-square" onclick="openPopup()">
         Buy Now!
     </div>
 </div>
+
+<!-- Popup content -->
+<div class="popup" id="mopPop" style="font-family: Arial Bold;">
+    <h2>Please enter your payment information</h2>
+    <form>
+      <label for="symbol">Card Symbol:</label>
+      <input type="text" id="symbol" name="symbol" required>
+      <br>
+      <p>
+        
+      </p>
+      <label for="date">Renew Date:</label>
+      <input type="text" id="date" name="date" required>
+      <br>
+      <p>
+        
+      </p>
+      <label for="num">Lottery Number:</label>
+      <input type="text" id="num" name="num" required>
+      <br>
+      <p>
+        
+      </p>
+      <button type="button" onclick="closePopup()">Cancel</button>
+      <button type="button" onclick="closePopup()">Submit</button>
+    </form>
+  </div>
+
+  <!-- JavaScript code -->
+  <script>
+    function openPopup() {
+      document.getElementById('mopPop').style.display = 'block';
+    }
+  
+    function closePopup() {
+      document.getElementById('mopPop').style.display = 'none';
+    }
+  </script>
 
 </body>
 
