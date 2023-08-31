@@ -15,18 +15,18 @@
 
 </head>
 
-<body>
+<body style="height: fit-content;">
 
     <!-- <div class="container"></div> USE IF YOU WANT TO PUT IN CONTAINER -->
     <!-- nav bar class nav color light backgroung light -->
 
-    <nav class="navbar navbar-expand-sm navbar-dark navbar-font" style="background-color: #5B9279;">
+    <nav class="navbar navbar-expand-sm navbar-dark navbar-font" id="navBarColorBG">
         <div class="container">
             <!-- add name and logo  mb-0 = marging h1: bold-->
 
             <!-- class = make it a display inline block -->
-            <a href="./index.html" class="navbar-brand mb-0 h1 ">
-                <img class="d-inline-block align-center" src="./logo2.PNG" width="80" height="80" />
+            <a href="./index.html" class="navbar-brand mb-0 h1 navbar-brand">
+                <img class="d-inline-block align-center " src="./Pebble_Village.PNG" width="120px" height="120px" />
                 Pebble Village
 
             </a>
@@ -93,241 +93,160 @@
     </nav>
 
 
-<!-- WRITE YOUR CODE HERE -->
-
-<!-- Beginning of Jonathan's code-->
+    <!-- Beginning of Jonathan's code-->
 
 
-<p>
-
-</p>
-<h2 style = "font-family: Arial Bold;">
-    Purchase a subscription today and join the Pebble Village family!
-</h2>
-
-<style>
-  /* CSS code */
-  .square {
-
-    width: 300px; 
-    height: 225px;
-    background-color: #5B9279;
-    color: white;
-    text-align: center;
-    line-height: 50px;
-
-    position: relative; 
-
-    top: -10%;
-    left: 17.5%;
-    transform: translate(-17.5%, 10%);
-
-    border: 20px #123a17;
-
-    margin-right: 30px;
-    display: inline-block;
-
-  }
-
-  .inner-square {
-
-    width: 150px;
-    height: 30px;
-    background-color: #FFFFFF;
-    color: #000000;
-    text-align: center;
-    line-height: 34px;
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, -85%);
-    opacity: 0;
-
-    transition: opacity 0.4s ease;
-    z-index: 1;
-    cursor: pointer;
-  }
+   <!-- does styling to make footer stay at bottom of page -->
+    <div class="container fluid d-flex flex-column" style="min-height: 70vh;"> 
+        <!-- Header -->
+        <header class="py-4">
+            <h2 class="display-6 lead fw-bolder" style="text-align: center;">
+                Purchase a subscription today and join the Pebble Village family!
+            </h2>
+        </header>
 
 
 
-  .inner-content ul{
-    padding : 0px;
-  }
-  .inner-content li{
-    margin-bottom: -20px;
-    margin-left: 45px;
-    position: relative;
-    top: -30px;
-    text-align:left;
-  }
 
-  .inner-content p{
-    padding:0px;
-  }
+        <div class="container pb-3 col justify-content-center">
+            <!-- HTML code -->
+            <div class="row justify-content-center ">
+                <div class="col-lg-4 mb-4 pb-md-4 pt-4">
 
-  .square:hover {
-    background-color: #534D56;
-}
+                    <div class="square">
+                        <div class="inner-content">
+                            <p>
+                                Basic Package - $15.99/month
+                            <ul>
+                                <li>
+                                    Access to Pebble Village facilities
+                                </li>
+                                <li>
+                                    Scheduled feeding times included
+                                </li>
+                                <li>
+                                    Availability to play and rest areas
+                                </li>
+                            </ul>
+                            </p>
+                        </div>
+                        <div class="inner-square" id="buttonSquare" onclick="openPopup()">
+                            Buy Now!
+                        </div>
+                    </div>
+                </div>
 
-  .square:hover .inner-square {
-    opacity: 1;
-}
 
-.popup {
-    display: none;
-    position: fixed;
-    height: 275px;
-    width: 1000px;
-    top: 50%;
-    left: 50%;
-    color: #FFFFFF;
-    transform: translate(-50%, -50%);
-    background-color: #5B9279;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    z-index: 2;
-  }
 
-.button{
-    margin-right: 30px;
-}
+                <div class="col-lg-4 mb-4 pb-md-4 pt-4">
 
-</style>
-<body>
+                    <div class="square">
+                        <div class="inner-content">
+                            <p>
+                                Convenience Package - $22.99/month
+                            <ul>
+                                <li>
+                                    All features in Basic Package
+                                </li>
+                                <li>
+                                    On-demand, at-home pet rock sitting
+                                </li>
+                                <li>
+                                    Weekly, complete pet rock bath
+                                </li>
+                            </ul>
+                            </p>
+                        </div>
+                        <div class="inner-square"  id="buttonSquare" onclick="openPopup()">
+                            Buy Now!
+                        </div>
+                    </div>
 
-<!-- HTML code -->
-<div class="square" style="font-family: Arial Bold;">
-    <div class="inner-content">
-        <p>
-            Basic Package - $15.99/month
-            <ul>
-                <li>
-                    Access to Pebble Village facilities
-                </li>
-                <li>
-                    Scheduled feeding times included
-                </li>
-                <li>
-                    Availability to play and rest areas
-                </li>
-            </ul>
-        </p>
+                </div>
+
+
+
+                <div class="col-lg-4 mb-4 pb-md-4 pt-4">
+                    <div class=" square">
+                        <div class="inner-content">
+                            <p>
+                                Platinum Package - $29.99/month
+                            <ul>
+                                <li>
+                                    All features in Convenience Package
+                                </li>
+                                <li>
+                                    Pet rock transport service
+                                </li>
+                                <li>
+                                    VIP area access
+                                </li>
+                            </ul>
+                            </p>
+                        </div>
+                        <div class="inner-square"  id="buttonSquare"  onclick="openPopup()">
+                            Buy Now!
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+
+                <!-- Popup content -->
+                <div class="popup" id="mopPop" style="font-family: Arial Bold;">
+                    <h2>Please enter your payment information</h2>
+                    <form>
+                        <label for="symbol">Card Symbol:</label>
+                        <input type="text" id="symbol" name="symbol" required>
+                        <br>
+                        <p>
+
+                        </p>
+                        <label for="date">Renew Date:</label>
+                        <input type="text" id="date" name="date" required>
+                        <br>
+                        <p>
+
+                        </p>
+                        <label for="num">Lottery Number:</label>
+                        <input type="text" id="num" name="num" required>
+                        <br>
+                        <p>
+
+                        </p>
+                        <button type="button" onclick="closePopup()">Cancel</button>
+                        <button type="button" onclick="closePopup()">Submit</button>
+                    </form>
+                </div>
+
+
+            </div>
+
+        </div>
     </div>
-  <div class="inner-square" onclick="openPopup()">
-    Buy Now!
-  </div>
-</div>
 
-<div class="square" style="font-family: Arial Bold;">
-    <div class="inner-content">
-        <p>
-            Convenience Package - $22.99/month
-            <ul>
-                <li>
-                    All features in Basic Package
-                </li>
-                <li>
-                    On-demand, at-home pet rock sitting
-                </li>
-                <li>
-                    Weekly, complete pet rock bath
-                </li>
-            </ul>
-        </p>
-    </div>
-    <div class="inner-square" onclick="openPopup()">
-        Buy Now!
-    </div>
-</div>
+    <!-- JavaScript code -->
+    <script>
+        function openPopup() {
+            document.getElementById('mopPop').style.display = 'block';
+        }
 
-<div class="square" style="font-family: Arial Bold;">
-    <div class="inner-content">
-        <p>
-            Platinum Package - $29.99/month
-            <ul>
-                <li>
-                    All features in Convenience Package
-                </li>
-                <li>
-                    Pet rock transport service
-                </li>
-                <li>
-                    VIP area access
-                </li>
-            </ul>
-        </p>
-    </div>
-    <div class="inner-square" onclick="openPopup()">
-        Buy Now!
-    </div>
-</div>
+        function closePopup() {
+            document.getElementById('mopPop').style.display = 'none';
+            document.getElementById('symbol').value = ''; // Clear input value
+            document.getElementById('date').value = ''; // Clear input value
+            document.getElementById('num').value = ''; // Clear input value
+        }
+    </script>
 
-<!-- Popup content -->
-<div class="popup" id="mopPop" style="font-family: Arial Bold;">
-    <h2>Please enter your payment information</h2>
-    <form>
-      <label for="symbol">Card Symbol:</label>
-      <input type="text" id="symbol" name="symbol" required>
-      <br>
-      <p>
-        
-      </p>
-      <label for="date">Renew Date:</label>
-      <input type="text" id="date" name="date" required>
-      <br>
-      <p>
-        
-      </p>
-      <label for="num">Lottery Number:</label>
-      <input type="text" id="num" name="num" required>
-      <br>
-      <p>
-        
-      </p>
-      <button type="button" onclick="closePopup()">Cancel</button>
-      <button type="button" onclick="closePopup()">Submit</button>
-    </form>
-  </div>
 
-  <!-- JavaScript code -->
-  <script>
-    function openPopup() {
-      document.getElementById('mopPop').style.display = 'block';
-    }
-  
-    function closePopup() {
-      document.getElementById('mopPop').style.display = 'none';
-      document.getElementById('symbol').value = ''; // Clear input value
-      document.getElementById('date').value = ''; // Clear input value
-      document.getElementById('num').value = ''; // Clear input value
-    }
-  </script>
+    <!-- Ending of Jonathan's code-->
 
-</body>
-
-<!-- Ending of Jonathan's code-->
-
-    <footer class="fixed-bottom py-5 mt-5" style="background-color: #534D56;">
+    <footer class="py-4 mt-3  " style="background-color: #3D3A3F;" id="priceFooter">
         <div class="container text-light text-center">
-            <p class="display-5 mb-3">Pebble Village</p>
+            <p class="display-5 mb-3" style="color: #F5F2F0 ;">Pebble Village</p>
             <small class="text-white-50">&copy; Copyright by Pebble Village. All rights reserved.</small>
         </div>
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 
