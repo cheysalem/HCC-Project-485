@@ -1,10 +1,45 @@
 /*NMSU CS485 Fall 2023 Project*/
 
+/*layout*/
+html, body{
+  padding:0;
+  margin:0;
+  height:100%;
+}
+
+/*flex applied to everything in the page*/
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height:100%;
+  min-height:100vh;
+  min-height:100svh;
+  /*position:relative;*/
+}
+
 /* font for all pages */
 body {
   --bs-body-font-family: "Montserrat", sans serif;
-  
   /* padding-bottom: 80px; */
+}
+/*
+article{
+  padding-bottom: 12rem; /*height of footer
+}
+*/
+
+/*this makes the footer go down*/
+.wrapper footer{
+  margin-top: auto;
+  /*
+  position:absolute;
+  width:100%;
+  height:12rem;
+  */
+}
+
+footer{
+  color: #F5F2F0;
 }
 
 
@@ -44,11 +79,6 @@ body {
   border-color: #F5F2F0;
 }
 
-
-.footer{
-  color: #F5F2F0;
-}
-
 .navbar-brand img{
   max-height: 300px;
   width: auto;
@@ -69,7 +99,7 @@ body {
       .square {
 
         width: 300px;
-        height: 225px;
+        height: 225px; 
         background-color: #4F80FC;
         color: white;
         text-align: center;
