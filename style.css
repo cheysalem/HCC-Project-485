@@ -3,8 +3,10 @@
 /* font for all pages */
 body {
   --bs-body-font-family: "Montserrat", sans serif;
+  
   /* padding-bottom: 80px; */
 }
+
 
 /* height constaint */
 
@@ -21,17 +23,144 @@ body {
   /* margin: auto; */
 }
 
-
-
 #myButton.btn-primary {
   color: black;
-  background-color: white;
+  background-color: #F5F2F0;
   border-color: #534d56;
 }
 #myButton.btn-primary:hover {
-  background-color: #534d56;
-  border-color: white;
+  background-color: #28C880;
+  border-color: #F5F2F0;
 }
 
 
-/* ADD CSS rules here */
+#myButtonBlog.btn-primary {
+  color: #F5F2F0;
+  background-color: #4F80FC;
+  border-color: #F5F2F0;
+}
+#myButtonBlog.btn-primary:hover {
+  background-color: #28C880;
+  border-color: #F5F2F0;
+}
+
+
+.footer{
+  color: #F5F2F0;
+}
+
+.navbar-brand img{
+  max-height: 300px;
+  width: auto;
+}
+
+
+
+
+/*Jonathan's CSS Rules */
+
+
+#navBarColorBG{
+  background-color: #4F80FC;
+}
+
+
+      /* CSS code */
+      .square {
+
+        width: 300px;
+        height: 225px;
+        background-color: #4F80FC;
+        color: white;
+        text-align: center;
+        line-height: 50px;
+
+        position: relative;
+
+        top: -10%;
+        left: 17.5%;
+        transform: translate(-17.5%, 10%);
+
+        border: 20px #123a17;
+
+        margin-right: 30px;
+        display: inline-block;
+
+    }
+
+    .inner-square {
+
+        width: 150px;
+        height: 30px;
+        background-color: #FFFFFF;
+        color: #000000;
+        text-align: center;
+        line-height: 34px;
+        position: absolute;
+        top: 85%;
+        left: 50%;
+        transform: translate(-50%, -85%);
+        opacity: 0;
+
+        transition: opacity 0.4s ease;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+
+    .inner-content ul {
+        padding: 0px;
+    }
+
+    .inner-content li {
+        margin-bottom: -20px;
+        margin-left: 45px;
+        position: relative;
+        top: -30px;
+        text-align: left;
+    }
+
+    .inner-content p {
+        padding: 0px;
+    }
+
+    .square:hover {
+        background-color: #28C880;
+    }
+
+    .square:hover .inner-square {
+        opacity: 1;
+    }
+
+    .popup {
+        display: none;
+        position: fixed;
+        height: 275px;
+        width: 1000px;
+        top: 50%;
+        left: 50%;
+        color: #FFFFFF;
+        transform: translate(-50%, -50%);
+        background-color: #4F80FC;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        z-index: 2;
+        border: 2px solid #28C880;
+    }
+
+    .button {
+        margin-right: 30px;
+
+    }
+
+    #buttonSquare {
+
+        border: 1px solid #4F80FC;
+        /* Border properties */
+        border-radius: 5px;
+        text-align: center;
+       
+    }
+
+
+   
