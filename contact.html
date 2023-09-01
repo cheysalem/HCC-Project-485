@@ -32,14 +32,10 @@
 
 
 
-        #cont {
+        #contact {
             width: 60%;
             padding: 45px;
-            border-radius: 0;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            overflow-wrap: anywhere;
         }
 
         .row {
@@ -59,10 +55,12 @@
 
         }
 
+        /*removed this because it will make people think the element is interactable when it isn't
         .col-md-5:hover {
             background-color: #28C880;
             border-color: #F5F2F0;
         }
+        */
 
         .form-control {
             height: 38px;
@@ -85,15 +83,22 @@
 
         }
 
-
         @media only screen and (max-width:600px) {
-            .container {
+            /*the inner element, not the container*/
+            #contact {
                 width: 100%;
+                /*
+                I want to know what process you went through
+                that resulted in this code.
+                Did you even test it?
+                I removed it because it didn't work.
                 position: absolute;
                 left: 50%;
                 top: 90%;
+                */
             }
         }
+        */
     </style>
     <div class="wrapper">
 
@@ -169,13 +174,7 @@
 
         </nav>
 
-        <!-- removed redundant styling -->
-        <!-- <div class="container text-center">
-        <h2>Still got questions? Contact us with the email below!</h2>
-         <h1>pebblevillageofficial@gmail.com</h1> -->
-
-
-        <div class="container pt-3" id="cont">
+        <div class="container" id="contact">
             <div class="row">
                 <div class="col-md-7">
                     <h4 class="display-md-4">Get in touch</h4>
