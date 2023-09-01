@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pebble Village</title>
+    <title>Pebble Village Contact Us</title>
     <link rel="stylesheet" href="./style.css">
+    <!-- bootstrap 5.2 icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- defer= script executed once page is finished loading -->
@@ -19,55 +21,128 @@
 
     <!-- <div class="container"></div> USE IF YOU WANT TO PUT IN CONTAINER -->
     <!-- nav bar class nav color light backgroung light -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+
+
+        #cont {
+            width: 60%;
+            padding: 45px;
+            border-radius: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .row {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+        }
+
+        .col-md-7 {
+            padding: 10px;
+        }
+
+        .col-md-5 {
+            background: #4F80FC;
+            padding: 10px;
+            color: white;
+
+
+        }
+
+        .col-md-5:hover {
+            background-color: #28C880;
+            border-color: #F5F2F0;
+        }
+
+        .form-control {
+            height: 38px;
+            background: #F5F2F0;
+            color: #000;
+            font-size: 14px;
+            border-radius: 2px;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: 1px solid #3D3A3F
+        }
+
+        .bi {
+            font-size: 20px;
+        }
+
+        .d-flex p {
+            font-size: 18px;
+            padding-left: 10px;
+
+        }
+
+
+        @media only screen and (max-width:600px) {
+            .container {
+                width: 100%;
+                position: absolute;
+                left: 50%;
+                top: 90%;
+            }
+        }
+    </style>
     <div class="wrapper">
 
-    <nav class="navbar navbar-expand-sm navbar-dark navbar-font" id="navBarColorBG">
-        <div class="container">
-        <!-- add name and logo  mb-0 = marging h1: bold-->
+        <nav class="navbar navbar-expand-sm navbar-dark navbar-font" id="navBarColorBG">
+            <div class="container">
+                <!-- add name and logo  mb-0 = marging h1: bold-->
 
-          <!-- class = make it a display inline block -->
-          <!-- class = make it a display inline block -->
-          <a href="./index.html" class="navbar-brand mb-0 h1 navbar-brand-img">
-            <img id="logo" class="d-inline-block align-center" src="./Pebble_Village.jpg" />
-            Pebble Village
-        </a>
+                <!-- class = make it a display inline block -->
+                <!-- class = make it a display inline block -->
+                <a href="./index.html" class="navbar-brand mb-0 h1 navbar-brand-img">
+                    <img class="d-inline-block align-center" src="./Pebble_Village.PNG" />
+                    Pebble Village
+                </a>
 
-        <!-- nav bar button for smaller screens and toggle feature -->
-        <!-- aria-label when hovered over says whats happening -->
-        <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
-            aria-controls="navbarNav" aria-exopanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                <!-- nav bar button for smaller screens and toggle feature -->
+                <!-- aria-label when hovered over says whats happening -->
+                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                    aria-controls="navbarNav" aria-exopanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav" style="font-family: Montserrat;">
+                <div class="collapse navbar-collapse" id="navbarNav" style="font-family: Montserrat;">
 
-            <ul class="navbar-nav">
-                <li class="nav-item ">
-                    <a href="./index.html" class="nav-link ">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./blog.html" class="nav-link">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./careers.html" class="nav-link">Careers</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./contact.html" class="nav-link active">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a href="./pricing.html" class="nav-link">Pricing</a>
-                    <!-- <a href="./pricing.html" class="nav-link dropdown-toggle"
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <a href="./index.html" class="nav-link ">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./about.html" class="nav-link">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./blog.html" class="nav-link">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./careers.html" class="nav-link">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./contact.html" class="nav-link active">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./pricing.html" class="nav-link">Pricing</a>
+                            <!-- <a href="./pricing.html" class="nav-link dropdown-toggle"
                     id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false" -->
-                    <!-- > -->
-                    <!-- Pricing -->
-                </li>
-                <!-- <ul class="dropdown-menu"
+                            <!-- > -->
+                            <!-- Pricing -->
+                        </li>
+                        <!-- <ul class="dropdown-menu"
                 aria-labelledby="navbarDropdown">
                 <li>
                     <a href="./pricing.html" class="dropdown-item">Feature #1</a>
@@ -82,30 +157,94 @@
                     <a href="./pricing.html" class="dropdown-item">Pet Rock School?</a>
                 </li>
                 </ul> -->
-                <!-- </li> -->
+                        <!-- </li> -->
 
 
-            </ul>
+                    </ul>
 
+                </div>
+            </div>
+
+
+
+        </nav>
+
+        <!-- removed redundant styling -->
+        <!-- <div class="container text-center">
+        <h2>Still got questions? Contact us with the email below!</h2>
+         <h1>pebblevillageofficial@gmail.com</h1> -->
+
+
+        <div class="container pt-3" id="cont">
+            <div class="row">
+                <div class="col-md-7">
+                    <h4 class="display-md-4">Get in touch</h4>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput2" class="form-label">Contact Number</label>
+                        <input type="number" class="form-control" id="phone" placeholder="Enter your phone number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea2" class="form-label">Message Us</label>
+                        <textarea class="form-control" id="message" rows="3"></textarea>
+                    </div>
+                    <button id="myButton" class="btn btn-primary">Send</button>
+                </div>
+                <div class="col-md-5">
+                    <h4 class="display-md-4">Contact us</h4>
+                    <div class="mt-5">
+                        <div class="d-flex">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <p> Address: 123 pebble drive, suite 333 Las Cruces NM 33333</p>
+                        </div>
+                        <div class="d-flex">
+                            <i class="bi bi-telephone-fill"></i>
+                            <p> Contact :- (333) 333-3333 </p>
+                        </div>
+                        <div class="d-flex">
+                            <i class="bi bi-envelope-fill"></i>
+                            <p>Email:- pebblevillageofficial@gmail.com</p>
+                        </div>
+                        <div class="d-flex">
+                            <i class="bi bi-browser-chrome"></i>
+                            <p>Website: www.pebblevillage.com</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('myButton').addEventListener('click', function () {
+                    // Get input values
+                    document.getElementById('name').value = ''; // Clear input value;
+                    document.getElementById('email').value = ''; // Clear input value;
+                    document.getElementById('phone').value = ''; // Clear input value;
+                    document.getElementById('message').value = ''; // Clear input value;
+
+                    // You can perform further validation or processing here
+
+                    //  the captured values (you can modify this part)
+                });
+            });
+        </script>
 
 
-    </nav>
-
-    <!-- removed redundant styling -->
-    <div class="container text-center">
-        <h2>Still got questions? Contact us with the email below!</h2>
-        <h1>pebblevillageofficial@gmail.com</h1>
-    </div>
-
-    <footer class="py-4" style="background-color: #3D3A3F;">
-        <div class="container text-light text-center">
-            <p class="display-5 mb-3"  style="color: #F5F2F0 ;">Pebble Village</p>
-            <small class="text-white-50">&copy; Copyright by Pebble Village. All rights reserved.</small>
-        </div>
-    </footer>
+        <footer class="py-4 " style="background-color: #3D3A3F;">
+            <div class="container text-light text-center">
+                <p class="display-5 mb-3" style="color: #F5F2F0 ;">Pebble Village</p>
+                <small class="text-white-50">&copy; Copyright by Pebble Village. All rights reserved.</small>
+            </div>
+        </footer>
 
     </div><!-- wrapper -->
 
