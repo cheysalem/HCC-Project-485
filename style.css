@@ -79,21 +79,13 @@ footer{
   border-color: #F5F2F0;
 }
 
-/* .navbar-brand img{
-  max-height: 300px;
+.navbar-brand img{
+  max-height: 90px;
   width: auto;
-} */
-
-
-#logo{
-  /* max-height: 100px; */
-  
-    display: flex;
-    /* position: absolute; */
-    height: 150px;
-    width: auto;
-    /* margin-right: 10em; */
 }
+
+
+
 
 /*Jonathan's CSS Rules */
 
