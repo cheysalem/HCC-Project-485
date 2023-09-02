@@ -18,9 +18,10 @@ html, body{
 }
 
 /* font for all pages */
-body {
-  --bs-body-font-family: "Montserrat", sans serif;
+body, p, a{
+  --bs-body-font-family: Montserrat,sans-serif !important;
   /* padding-bottom: 80px; */
+  font-family:Montserrat,sans-serif !important;
 }
 /*
 article{
