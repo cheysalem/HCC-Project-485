@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" />
     <title>Pebble Village</title>
     <link rel="stylesheet" href="./style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -13,10 +14,14 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
 
+    <!-- custom analysis script -->
+    <script src="./js/analysis.js"></script>
+
 </head>
 <!-- style="height: fit-content;" -->
 
-<body>
+<!-- run analysis script onload -->
+<body onload="checkCookie()">
 
 <div class="wrapper">
     <!-- <div class="container"></div> USE IF YOU WANT TO PUT IN CONTAINER -->
@@ -25,6 +30,11 @@
     <nav class="navbar navbar-expand-sm navbar-dark navbar-font" id="navBarColorBG">
         <div class="container" >
             <!-- add name and logo  mb-0 = marging h1: bold-->
+
+            <!-- secret cookie button -->
+            <button style="opacity:0; z-index:9999; position:fixed; top:0; left:0;" id="showCookiesBtn">
+                <img src="./assets/everstone.png" alt="secret cookie button" title="secret cookie button"/>
+            </button>
 
              <!-- class = make it a display inline block -->
              <a href="./index.html" class="navbar-brand mb-0 h1 navbar-brand-img">
