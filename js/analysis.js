@@ -37,7 +37,7 @@ const rngModifier = 0;
         //assign random number to user
        //rngModifier++;
        //user = Math.random()*100 + rngModifier;
-       user = prompt("Please enter your name:", "");
+       user = prompt("Cookie test. Enter a username:", "");
        if (user != "" && user != null) {
         //save visitor data setCookie
          setCookie("username", user, 30);
