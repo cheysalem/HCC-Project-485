@@ -1,3 +1,5 @@
+# NOTE: you might have to run 'pip install Flask' in your command prompt for the flask stuff to work
+
 from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 
