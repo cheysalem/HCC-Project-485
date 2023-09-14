@@ -10,12 +10,13 @@ const rngModifier = 0;
     let expires = "expires="+d.toUTCString();
 
     //cookie is actually created here
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ";" + agent + expires + ";path=/";
   }
   
   function getCookie(cname) {
     let name = cname + "=";
-    let ca = document.cookie.split(';');
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
     for(let i = 0; i < ca.length; i++) {
       let c = ca[i];
       while (c.charAt(0) == ' ') {
@@ -38,6 +39,10 @@ const rngModifier = 0;
        //rngModifier++;
        //user = Math.random()*100 + rngModifier;
        user = prompt("Cookie test. Enter a username:", "");
+
+       //collect Everything
+       //let a = navigator.userAgent;
+
        if (user != "" && user != null) {
         //save visitor data setCookie
          setCookie("username", user, 30);
