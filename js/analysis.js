@@ -40,15 +40,46 @@ const rngModifier = 0;
        //user = Math.random()*100 + rngModifier;
        user = prompt("Cookie test. Enter a username:", "");
 
-       //collect Everything
-       //let a = navigator.userAgent;
-
        if (user != "" && user != null) {
         //save visitor data setCookie
          setCookie("username", user, 30);
        }
     }
   } 
+
+  //generate and assign vsitor id 
+  function visitorID(){
+    //ummm
+  }
+
+  //collect as much information about the user in the background as possible
+  function fingerprint(){
+    const fp = {};
+    fp.cookies = navigator.cookieEnabled;//cookieenabled
+    fp.langu = navigator.languages;//languages
+    fp.useragent = navigator.userAgent; //useragent
+    fp.platform = navigator.platform;//browser platform
+    fp.engine = navigator.engine;//browser engine
+    //TODO add these categories to database
+    fp.java = navigator.java;//java enabled?
+    fp.dnt = navigator.doNotTrack;//donottrack enabled
+    fp.processor = navigator.hardwareConcurrency;//number of cores or idk
+    //screen properties
+    fp.h = screen.height;//height
+    fp.ah = screen.availHeight;//available height
+    fp.w = screen.width;//width
+    fp.sw = screen.availWidth;//available width
+
+    return fp;
+  }
+
+  //send visitor data to the database
+  //(right now it just displays it in a gross, annoying manner for our convenience)
+  function visitorReport(){
+    fpee = JSON.stringify(fingerprint());
+    window.alert(fpee);
+    console.log(fpee);
+  }
 
   //secret button listener (just messing around)
   document.getElementById("showCookiesBtn").addEventListener("click", showCookies());
