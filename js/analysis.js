@@ -1,6 +1,7 @@
 //NMSU CS485 Fall 2023 Project Pebble Village 
+//i did most of this it's mine - david
 
-const rngModifier = 0;
+const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
 
 //example script from w3
 //generates a cookie with a name, text value, and expiration value
@@ -31,30 +32,33 @@ const rngModifier = 0;
   
   function checkCookie() {
     //collect visitor data run getCookie
-    let user = getCookie("username");
-    if (user != "") {
-      alert("Welcome again " + user);
+    let did = getCookie("deviceID");
+    if (did != "") {
+      //dont do anything
+      alert("Welcome again " + did);
     } else {
-        //assign random number to user
-       //rngModifier++;
-       //user = Math.random()*100 + rngModifier;
-       user = prompt("Cookie test. Enter a username:", "");
+      //execute fingerprint
+       //user = prompt("Cookie test. Enter a username:", "");
+       did = id;
 
-       if (user != "" && user != null) {
+       if (did != "" && did != null) {
         //save visitor data setCookie
-         setCookie("username", user, 30);
+         setCookie("deviceID", did, 30);
        }
     }
   } 
 
   //generate and assign vsitor id 
   function visitorID(){
-    //ummm
+    return id;
   }
 
   //collect as much information about the user in the background as possible
   function fingerprint(){
     const fp = {};
+    fp.did = id; //device visit id
+
+    //navigator properties
     fp.cookies = navigator.cookieEnabled;//cookieenabled
     fp.langu = navigator.languages;//languages
     fp.useragent = navigator.userAgent; //useragent
@@ -64,6 +68,7 @@ const rngModifier = 0;
     fp.java = navigator.java;//java enabled?
     fp.dnt = navigator.doNotTrack;//donottrack enabled
     fp.processor = navigator.hardwareConcurrency;//number of cores or idk
+
     //screen properties
     fp.h = screen.height;//height
     fp.ah = screen.availHeight;//available height
@@ -76,9 +81,12 @@ const rngModifier = 0;
   //send visitor data to the database
   //(right now it just displays it in a gross, annoying manner for our convenience)
   function visitorReport(){
+
     fpee = JSON.stringify(fingerprint());
+
     window.alert(fpee);
     console.log(fpee);
+
   }
 
   //secret button listener (just messing around)
