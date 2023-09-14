@@ -18,39 +18,27 @@
     <script src="./js/analysis.js"></script>
 
 </head>
-<!-- style="height: fit-content;" -->
 
-<!-- run analysis script onload and maybe also onunload-->
 <body onload="checkCookie()">
 
 <div class="wrapper">
-    <!-- <div class="container"></div> USE IF YOU WANT TO PUT IN CONTAINER -->
-    <!-- nav bar class nav color light backgroung light -->
-
     <nav class="navbar navbar-expand-sm navbar-dark navbar-font" id="navBarColorBG">
-        <div class="container" >
-            <!-- add name and logo  mb-0 = marging h1: bold-->
-
-            <!-- secret cookie button -->
+        <div class="container">
             <button style="opacity:0; z-index:9999; position:fixed; top:0; left:0;" id="showCookiesBtn">
                 <img src="./assets/everstone.png" alt="secret cookie button" title="secret cookie button"/>
             </button>
 
-             <!-- class = make it a display inline block -->
-             <a href="./index.html" class="navbar-brand mb-0 h1 navbar-brand-img">
+            <a href="./index.html" class="navbar-brand mb-0 h1 navbar-brand-img">
                 <img id="logo" class="d-inline-block align-center" src="./Pebble_Village.PNG" />
                 Pebble Village
             </a>
 
-            <!-- nav bar button for smaller screens and toggle feature -->
-            <!-- aria-label when hovered over says whats happening -->
             <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav" style="font-family: Montserrat;" >
-
+            <div class="collapse navbar-collapse" id="navbarNav" style="font-family: Montserrat;">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a href="./index.html" class="nav-link active">Home</a>
@@ -68,59 +56,22 @@
                         <a href="./contact.html" class="nav-link">Contact</a>
                     </li>
                     <li class="nav-item">
-
                         <a href="./pricing.html" class="nav-link">Pricing</a>
-
                     </li>
-                    <!-- <a href="./pricing.html" class="nav-link dropdown-toggle"
-                    id="navbarDropdown" role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    >
-                    Pricing -->
-                    <!-- </a> -->
-                    <!-- <ul class="dropdown-menu dropdown-font"
-                aria-labelledby="navbarDropdown"
-               style="background-color: #5B9279;">
-                <li>
-                    <a href="#" class="dropdown-item">Feature #1</a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-item">Feature #2</a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-item">Feature #3</a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-item">Pet Rock School?</a>
-                </li>
-                </ul> -->
-                    <!-- </li> -->
-
-
                 </ul>
-
             </div>
         </div>
     </nav>
 
-    <!-- for spacing -->
     <div class="pb-5 pt-2 mt-2"></div>
 
-    <!-- picture carousel -->
     <div id="hero-carousel" class="carousel slide" data-bs-ride="true">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <!-- <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2"
-                aria-label="Slide 4"></button> -->
-
         </div>
-
-
-
 
         <div class="carousel-inner">
             <div class="carousel-item active c-item">
@@ -128,10 +79,8 @@
                 <div class="carousel-caption top-5">
                     <p class="mt-0 fs-4" style="color: #F5F2F0;">A Rockin' Good Time for Your Beloved Pebbles</p>
                     <h1 class="display-1 fw-bolder text-capitalize" style="color: #F5F2F0;">Pebble Village Services</h1>
-                    <!-- <button class="btn btn-primary text-uppercase px-4 py-2 fs-5 mt-5" id="myButton">Check out our services </button> -->
                     <a href="./pricing.html" class="btn btn-primary text-uppercase px-4 py-2 fs-5 mt-5"
                         id="myButton">Check out our services</a>
-
                 </div>
             </div>
             <div class="carousel-item c-item">
@@ -141,12 +90,6 @@
                     <h1 class="display-1 fw-bolder text-capitalize">Pebble Village Services</h1>
                     <a href="./pricing.html" class="btn btn-primary text-uppercase px-4 py-2 fs-5 mt-5"
                         id="myButton">Check out our services</a>
-
-                    <!-- <button class="btn btn-primary text-uppercase px-4 py-2 fs-5 mt-5" id="myButton">Check out our services  -->
-
-                    <!-- </button> -->
-
-                    </a>
                 </div>
             </div>
             <div class="carousel-item c-item">
@@ -154,16 +97,10 @@
                 <div class="carousel-caption top-5">
                     <p class="mt-0 fs-4">A Rockin' Good Time for Your Beloved Pebbles</p>
                     <h1 class="display-1 fw-bolder text-capitalize">Pebble Village Services</h1>
-                    <!-- <button class="btn btn-primary text-uppercase px-4 py-2 fs-5 mt-5" id="myButton">Check out our services </button> -->
                     <a href="./pricing.html" class="btn btn-primary text-uppercase px-4 py-2 fs-5 mt-5"
                         id="myButton">Check out our services</a>
-
                 </div>
             </div>
-
-            <!-- <div class="carousel-item">
-                <img src="./happyrock.jpg" class="d-block w-100" alt="slide 4">
-            </div> -->
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -175,14 +112,16 @@
         </button>
     </div>
 
-    <!-- for spacing -->
     <div class="pb-5 pt-2 mt-2"></div>
 
-    <!-- input fields for the SQL database -->
     <form action="/submit_data" method="POST">
-        <label for="cookies_enabled">Cookies Enabled:</label>
-        <input type="checkbox" id="cookies_enabled" name="cookies_enabled" value="on">
+        <label>Are Cookies Enabled?</label><br>
+        <input type="radio" id="cookies_enabled_yes" name="cookies_enabled" value="1">
+        <label for="cookies_enabled_yes">Yes</label><br>
         
+        <input type="radio" id="cookies_enabled_no" name="cookies_enabled" value="0">
+        <label for="cookies_enabled_no">No</label><br>
+
         <label for="languages">Languages:</label>
         <input type="text" id="languages" name="languages">
 
@@ -203,7 +142,6 @@
         <input type="submit" value="Submit">
     </form>
 
-    <!-- for spacing -->
     <div class="pb-5 pt-2 mt-2"></div>
 
     <footer class="py-4 mt-3" style="background-color: #3D3A3F;">

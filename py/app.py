@@ -1,12 +1,7 @@
-# NOTE: you might have to run 'pip install Flask' in your command prompt for the flask stuff to work
-
 from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 
 app = Flask(__name__)
-
-# Modify the following line to specify the path to your SQLite database file
-db_path = 'your_database_file.db'  # Change this to your database file path
 
 @app.route('/')
 def index():
@@ -15,31 +10,31 @@ def index():
 @app.route('/submit_data', methods=['POST'])
 def submit_data():
     if request.method == 'POST':
-        cookies_enabled = request.form['cookies_enabled']
+        cookies_enabled = int(request.form['cookies_enabled'])  # Convert to int to store as binary value
         languages = request.form['languages']
         user_agent = request.form['user_agent']
         browser_platform = request.form['browser_platform']
         browser_engine = request.form['browser_engine']
         device_id = request.form['device_id']
 
-        # Connect to your SQLite database
-        conn = sqlite3.connect(db_path)
+        conn = sqlite3.connect('form_data.db')
         cursor = conn.cursor()
 
-        # Modify the CREATE TABLE statement to match your table structure
         cursor.execute('''
-            CREATE TABLE IF NOT EXISTS your_table_name (
+            CREATE TABLE IF NOT EXISTS form_data (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                column1_name TEXT,
-                column2_name INTEGER,
-                ...  # Add more columns as needed + adjust column names to the names of the columns in the SQL database
+                cookies_enabled INTEGER,  -- Store as INTEGER for binary value
+                languages TEXT,
+                user_agent TEXT,
+                browser_platform TEXT,
+                browser_engine TEXT,
+                device_id TEXT
             )
         ''')
 
-        # Modify the INSERT INTO statement to match your column names
         cursor.execute('''
-            INSERT INTO your_table_name (column1_name, column2_name, ...)
-            VALUES (?, ?, ...)
+            INSERT INTO form_data (cookies_enabled, languages, user_agent, browser_platform, browser_engine, device_id)
+            VALUES (?, ?, ?, ?, ?, ?)
         ''', (cookies_enabled, languages, user_agent, browser_platform, browser_engine, device_id))
 
         conn.commit()
