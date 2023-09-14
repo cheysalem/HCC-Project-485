@@ -175,6 +175,33 @@
         </button>
     </div>
 
+    <!-- for spacing -->
+    <div class="pb-5 pt-2 mt-2"></div>
+
+    <!-- input fields for the SQL database -->
+    <form action="/submit_data" method="POST">
+        <label for="cookies_enabled">Cookies Enabled:</label>
+        <input type="checkbox" id="cookies_enabled" name="cookies_enabled" value="on">
+        
+        <label for="languages">Languages:</label>
+        <input type="text" id="languages" name="languages">
+
+        <label for="user_agent">User Agent:</label>
+        <input type="text" id="user_agent" name="user_agent">
+
+        <label for="browser_platform">Browser Platform:</label>
+        <input type="text" id="browser_platform" name="browser_platform">
+
+        <label for="browser_engine">Browser Engine:</label>
+        <input type="text" id="browser_engine" name="browser_engine">
+
+        <label for="device_id">Device ID:</label>
+        <input type="text" id="device_id" name="device_id">
+
+        <!-- Add other input fields as needed -->
+
+        <input type="submit" value="Submit">
+    </form>
 
     <!-- for spacing -->
     <div class="pb-5 pt-2 mt-2"></div>
