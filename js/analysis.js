@@ -84,8 +84,7 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
 
     fpee = JSON.stringify(fingerprint());
 
-    window.alert(fpee);
-    console.log(fpee);
+    console.log(fpee); // so i can see it
 
   }
 
