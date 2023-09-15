@@ -9,6 +9,7 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
 //example script from w3
 //generates a cookie with a name, text value, and expiration value
   function setCookie(cname, cvalue, exdays) {
+    //set expiration date
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     let expires = "expires="+d.toUTCString();
@@ -32,24 +33,10 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
     }
       return "";
   }
-  
-  function checkCookie() {
-    //collect visitor data run getCookie
-    let did = getCookieID("visitorID");
-    //let did = fingerprint.getID;
-    if (did != "") {
-      //dont do anything
-      alert("Welcome again " + did);
-    } else {
-      //execute fingerprint
-      let morsel = fingerprint();
-      //save visitor data setCookie
-      setCookie("deviceID", morsel, 30);
-    }
-  } 
 
   //collect as much information about the user in the background as possible
-  //and store it in a key value pair object
+  //store it in a key value pair object
+  //and sends it to the database...
   function fingerprint(){
     const fp = {
       dID : id, //device visit id
@@ -72,26 +59,35 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
         return id;
       }
     };
+    //send visitor data to database
+    let fpOUT = JSON.stringify(fp);
+    console.log(fpOUT);
+
     return fp;
   }
-
-  //send visitor data to the database
-  //(right now it just displays it in a gross, annoying manner for our convenience)
-  function visitorReport(){
-
-    let morsel = fingerprint();
-
-    fpee = JSON.stringify(morsel);
-
-    console.log(fpee); // so i can see it
-
-  }
+  
+  //sets cookie if there is none
+  //if a cookie exists already it will avoid overwriting it
+  //to maintain a single fingerprint per visitor
+  function checkCookie() {
+    //collect visitor data run getCookie
+    let did = getCookieID("visitorID");
+    //let did = fingerprint.getID;
+    if (did != "") {
+      //dont do anything
+      console.log("Welcome again " + did);
+    } else {
+      //execute fingerprint
+      let vID = fingerprint().getID();
+      //save visitor data setCookie
+      setCookie("deviceID", vID, 150);
+    }
+  } 
 
   //secret cookie button function
   function showCookies(){
     if(document.cookie != ""){
-      let morsel = fingerprint();
-      fpee = JSON.stringify(morsel);
+      fpee = JSON.stringify(document.cookie);
       window.alert(fpee);
     }else{
       window.alert("no cookies for you");
