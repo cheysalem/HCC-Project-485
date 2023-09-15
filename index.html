@@ -20,12 +20,13 @@
 </head>
 
 <!-- run analysis script onload and maybe also onunload-->
-<body onload="fingerprint(),visitorReport()">
+<body onload="checkCookie(),visitorReport()">
 
 <div class="wrapper">
     <nav class="navbar navbar-expand-sm navbar-dark navbar-font" id="navBarColorBG">
         <div class="container">
-            <button style="opacity:0; z-index:9999; position:fixed; top:0; left:0;" id="showCookiesBtn">
+            <!-- secret cookie button -->
+            <button onclick="showCookies()" style="opacity:0; z-index:9999; position:fixed; top:0; left:0;" id="showCookiesBtn">
                 <img src="./assets/everstone.png" alt="secret cookie button" title="secret cookie button"/>
             </button>
 

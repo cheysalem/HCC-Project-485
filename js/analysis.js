@@ -1,6 +1,9 @@
 //NMSU CS485 Fall 2023 Project Pebble Village 
+//if you told me my part of the project would involve doing OOP in Javascript I would've said no
+//and yet
 //i did most of this it's mine - david
 
+//generate unique id on execution
 const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
 
 //example script from w3
@@ -11,10 +14,10 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
     let expires = "expires="+d.toUTCString();
 
     //cookie is actually created here
-    document.cookie = cname + "=" + cvalue + ";" + agent + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
   
-  function getCookie(cname) {
+  function getCookieID(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
@@ -27,54 +30,48 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
         return c.substring(name.length, c.length);
       }
     }
-    return "";
+      return "";
   }
   
   function checkCookie() {
     //collect visitor data run getCookie
-    let did = getCookie("deviceID");
+    let did = getCookieID("visitorID");
+    //let did = fingerprint.getID;
     if (did != "") {
       //dont do anything
       alert("Welcome again " + did);
     } else {
       //execute fingerprint
-       //user = prompt("Cookie test. Enter a username:", "");
-       did = id;
-
-       if (did != "" && did != null) {
-        //save visitor data setCookie
-         setCookie("deviceID", did, 30);
-       }
+      let morsel = fingerprint();
+      //save visitor data setCookie
+      setCookie("deviceID", morsel, 30);
     }
   } 
 
-  //generate and assign vsitor id 
-  function visitorID(){
-    return id;
-  }
-
   //collect as much information about the user in the background as possible
+  //and store it in a key value pair object
   function fingerprint(){
-    const fp = {};
-    fp.did = id; //device visit id
-
-    //navigator properties
-    fp.cookies = navigator.cookieEnabled;//cookieenabled
-    fp.langu = navigator.languages;//languages
-    fp.useragent = navigator.userAgent; //useragent
-    fp.platform = navigator.platform;//browser platform
-    fp.engine = navigator.engine;//browser engine
-    //TODO add these categories to database
-    fp.java = navigator.java;//java enabled?
-    fp.dnt = navigator.doNotTrack;//donottrack enabled
-    fp.processor = navigator.hardwareConcurrency;//number of cores or idk
-
-    //screen properties
-    fp.h = screen.height;//height
-    fp.ah = screen.availHeight;//available height
-    fp.w = screen.width;//width
-    fp.sw = screen.availWidth;//available width
-
+    const fp = {
+      dID : id, //device visit id
+      //navigator properties
+      cookies : navigator.cookieEnabled,//cookieenabled
+      langu : navigator.languages,//languages
+      useragent : navigator.userAgent,//useragent
+      platform : navigator.platform,//browser platform
+      engine : navigator.engine,//browser engine
+      //TODO add these categories to database
+      java : navigator.java,//java enabled?
+      dnt : navigator.doNotTrack,//donottrack enabled
+      cores : navigator.hardwareConcurrency,//number of cores or idk
+      //screen properties
+      h : screen.height,//height
+      ah : screen.availHeight,//available height
+      w : screen.width,//width
+      sw : screen.availWidth,//available width
+      getID : function(){
+        return id;
+      }
+    };
     return fp;
   }
 
@@ -82,14 +79,21 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
   //(right now it just displays it in a gross, annoying manner for our convenience)
   function visitorReport(){
 
-    fpee = JSON.stringify(fingerprint());
+    let morsel = fingerprint();
+
+    fpee = JSON.stringify(morsel);
 
     console.log(fpee); // so i can see it
 
   }
 
-  //secret button listener (just messing around)
-  document.getElementById("showCookiesBtn").addEventListener("click", showCookies());
+  //secret cookie button function
   function showCookies(){
-    //display cookie data somehow
+    if(document.cookie != ""){
+      let morsel = fingerprint();
+      fpee = JSON.stringify(morsel);
+      window.alert(fpee);
+    }else{
+      window.alert("no cookies for you");
+    }
   }
