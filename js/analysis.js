@@ -13,15 +13,14 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     let expires = "expires="+d.toUTCString();
-
-    //cookie is actually created here
+    //bake the cookie
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
   
-  function getCookieID(cname) {
+  function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
+    let ca = decodedCookie.split(";");
     for(let i = 0; i < ca.length; i++) {
       let c = ca[i];
       while (c.charAt(0) == ' ') {
@@ -31,7 +30,7 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
         return c.substring(name.length, c.length);
       }
     }
-      return "";
+    return "";
   }
 
   //collect as much information about the user in the background as possible
@@ -70,17 +69,16 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
   //if a cookie exists already it will avoid overwriting it
   //to maintain a single fingerprint per visitor
   function checkCookie() {
-    //collect visitor data run getCookie
-    let did = getCookieID("visitorID");
-    //let did = fingerprint.getID;
-    if (did != "") {
+    let did = getCookie("visitorID");
+    if (document.cookie && did != "") {
       //dont do anything
       console.log("Welcome again " + did);
     } else {
       //execute fingerprint
-      let vID = fingerprint().getID();
+      let morsel = fingerprint();
+      let vID = morsel.dID;
       //save visitor data setCookie
-      setCookie("deviceID", vID, 150);
+      setCookie("visitorID", vID, 150);
     }
   } 
 
