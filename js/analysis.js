@@ -17,6 +17,8 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
   
+  //returns the cookie value
+  //it works don't touch it
   function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -35,7 +37,7 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
 
   //collect as much information about the user in the background as possible
   //store it in a key value pair object
-  //and sends it to the database...
+  //and sends it to the database
   function fingerprint(){
     const fp = {
       dID : id, //device visit id
@@ -58,7 +60,8 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
         return id;
       }
     };
-    //send visitor data to database
+
+    //send visitor data to database TODO
     let fpOUT = JSON.stringify(fp);
     console.log(fpOUT);
 
