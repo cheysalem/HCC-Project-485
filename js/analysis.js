@@ -3,6 +3,8 @@
 //and yet
 //i did most of this it's mine - david
 
+const fs = require('fs');
+
 //generate unique id on execution
 const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
 
@@ -33,6 +35,10 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
       }
     }
     return "";
+  }
+
+  function toFile(){
+    
   }
 
   //collect as much information about the user in the background as possible
