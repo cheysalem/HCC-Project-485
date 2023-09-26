@@ -146,6 +146,44 @@
 
     <div class="pb-5 pt-2 mt-2"></div> -->
 
+    <main id="container">
+        <div>
+            <span id="pageviews-count"></span>
+            <h4>Pageviews</h4>
+        </div>
+        <div>
+            <span id="visits-count"></span>
+            <h4>Visits</h4>
+        </div>
+    </main>
+<!-- we did... kinda -->
+    <script>
+        const pageviewsCount = document.getElementById('pageviews-count');
+        const visitsCount = document.getElementById('visits-count');
+
+        if (sessionStorage.getItem('visit') === null) {
+            // New visit and pageview
+            updateCounter('type=visit-pageview');
+        } else {
+            // Pageview
+            updateCounter('type=pageview');
+        }
+
+        function updateCounter(type) {
+
+            fetch('http://127.0.0.1:3302/api?' + type) // Dynamic request with URL parameter
+                .then(res => res.json())
+                .then(data => {
+                    pageviewsCount.textContent = data.pageviews; // Display pageviews to user
+                    visitsCount.textContent = data.visits; // Display visits to user
+                })
+
+        }
+
+        sessionStorage.setItem('visit', 'x');
+        // 'visit' item persists in storage for the remainder of the user session
+    </script>
+
     <footer class="py-4 mt-3" style="background-color: #3D3A3F;">
         <div class="container text-light text-center">
             <p class="display-5 mb-3" style="color: #F5F2F0 ;">Pebble Village</p>

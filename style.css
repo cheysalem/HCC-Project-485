@@ -199,3 +199,37 @@ footer{
 
 
    
+
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    /* body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Roboto', sans-serif;
+      color: black;
+    } */
+    #container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 2rem;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      padding: 2px 16px;
+    }
+    #container > div {
+      padding: 1rem;
+      margin: 1rem;
+      width: 7rem;
+    }
+    #container span {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    #container h4 {
+      font-size: 1rem;
+      font-weight: normal;
+      margin: 0;
+      margin-top: 1rem;
+    }
