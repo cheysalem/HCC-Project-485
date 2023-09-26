@@ -1,9 +1,15 @@
-//NMSU CS485 Fall 2023 Project Pebble Village 
-//if you told me my part of the project would involve doing OOP in Javascript I would've said no
-//and yet
-//i did most of this it's mine - david
 
-const fs = require('fs');
+//NMSU CS485 Fall 2023 Project Pebble Village
+//I did most of this - David K
+
+// const express = require('express');
+// const app = express();
+// const cors = require('cors');
+// const fs = require('fs');
+
+// app.use(cors());
+// console.out("cors");
+//import { fs } from 'node:fs';
 
 //generate unique id on execution
 const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
@@ -37,9 +43,13 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
     return "";
   }
 
-  function toFile(){
-    
-  }
+  //this is a contingency effort for if we can't get a database working
+  // function writeToFile(data){
+  //   fs.appendFileSync('fingerprints.json', data, (err) => {
+  //     // In case of a error throw err.
+  //     if (err) throw err;
+  // })
+  // }
 
   //collect as much information about the user in the background as possible
   //store it in a key value pair object
@@ -78,6 +88,7 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
   //if a cookie exists already it will avoid overwriting it
   //to maintain a single fingerprint per visitor
   function checkCookie() {
+    console.log("here");
     let did = getCookie("visitorID");
     if (document.cookie && did != "") {
       //dont do anything
@@ -100,3 +111,5 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
       window.alert("no cookies for you");
     }
   }
+
+  console.log("working");
