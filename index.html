@@ -171,7 +171,7 @@
 
         function updateCounter(type) {
 
-            fetch('https://b3fcbea5.hcc-project-485.pages.dev:3302/api?' + type) // Dynamic request with URL parameter
+            fetch('http://127.0.0.1:3302/api?' + type) // Dynamic request with URL parameter
                 .then(res => res.json())
                 .then(data => {
                     pageviewsCount.textContent = data.pageviews; // Display pageviews to user
