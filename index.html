@@ -172,13 +172,7 @@
         function updateCounter(type) {
 
             fetch('https://visitor-counter.csalem.workers.dev/' + type) // Dynamic request with URL parameter
-            .then((res) => {
-                return res.json();
-              })
-              .then((printCounter) => {
-                // Update the HTML element with the fetched data
-                document.getElementById('printCounter').innerHTML = `Counter: ${printCounter.views}`;
-              });
+            .then(res => {res.json().then((printCounter) => {console.log(printCounter["views"])})})
              
 
         }
