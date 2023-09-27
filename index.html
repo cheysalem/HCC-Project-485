@@ -172,12 +172,8 @@
         function updateCounter(type) {
 
             fetch('https://visitor-counter.csalem.workers.dev/' + type) // Dynamic request with URL parameter
-            .then(res => {res.json().then(printCounter) => {console.log(printCounter)}})
-                <!-- .then(res => res.json())
-                .then(data => {
-                    pageviewsCount.textContent = data.pageviews; // Display pageviews to user
-                    visitsCount.textContent = data.visits; // Display visits to user
-                }) -->
+            .then(res => {res.json().then((printCounter) => {console.log(printCounter["views"])})})
+             
 
         }
 
