@@ -173,7 +173,7 @@
 
             fetch('https://visitor-counter.csalem.workers.dev/' + type) // Dynamic request with URL parameter
             .then(res => {res.json().then((printCounter) => {const counterDisplay = document.getElementById('counterDisplay');
-            counterDisplay.innerHTML = `Counter: ${"views"}`;})})
+            counterDisplay.innerHTML = `Counter: ${views}`;})})
              
 
         }
