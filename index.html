@@ -171,7 +171,7 @@
 
         function updateCounter(type) {
 
-            fetch('https://https://c24930d2.hcc-project-485.pages.dev/api/' + type) // Dynamic request with URL parameter
+            fetch('https://c24930d2.hcc-project-485.pages.dev/api/' + type) // Dynamic request with URL parameter
                 .then(res => res.json())
                 .then(data => {
                     pageviewsCount.textContent = data.pageviews; // Display pageviews to user
