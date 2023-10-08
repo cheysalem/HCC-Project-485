@@ -186,27 +186,7 @@
                 updateCounter('type=response-display2');
             }
 
-            function updateCounter(type) {
-                fetch('https://visitor-counter.csalem.workers.dev/' + type)
 
-                    .then(res => { res.json().then((a) => console.log(a)) })
-                // .then(res => res.json())
-                //.then(data => {
-                // Extract the 'views' property and display it
-                //const viewsValue = data.views;
-                //responseDisplay.textContent = viewsValue;
-
-                // NOT WORKING FOR NEW VISITS PER PAGE
-                // const pageViewsValue = data.views;
-                // responseDisplay2.textContent = pageViewsValue
-
-
-
-
-                // console.log(a)
-
-
-            }
 
             function updateCounter(type) {
                 fetch('https://visitor-counter.csalem.workers.dev/' + type)
@@ -214,18 +194,17 @@
                     //.then(res => {res.json().then((a)=> console.log(a))})
                     .then(res => res.json())
                     .then(data => {
-                        // Extract the 'views' property and display it
+                        // Extract the 'page-views' property and display it (from workers and workers kv)
                         const pageViewsValue = data['page-views'];
+                        //print out page-views to html page
                         responseDisplay.textContent = pageViewsValue;
 
-                        // NOT WORKING FOR NEW VISITS PER PAGE
-                        // const pageViewsValue = data.views;
-                        // responseDisplay2.textContent = pageViewsValue
+                        //  Extract the 'new-visits' property and display it (from workers and workers kv)
+                        const new_visits = data['new-visits'];
+                        //print to html page
+                        responseDisplay2.textContent = new_visits;
 
-
-
-
-                        console.log(data)
+                        // console.log(data)
 
 
                     })
