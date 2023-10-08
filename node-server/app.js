@@ -28,5 +28,5 @@ app.get('/api', function(req, res){
 });
 
 app.listen(3302, () =>{
-    console.log("Server running on port 3302")
+    console.log("Server running on port 5500")
 })
