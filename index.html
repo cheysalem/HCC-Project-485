@@ -188,7 +188,9 @@
 
             function updateCounter(type) {
                 fetch('https://visitor-counter.csalem.workers.dev/' + type)
-                    .then(res => res.json())
+
+                .then(res => {res.json().then((a)=> console.log(a))})
+                    // .then(res => res.json())
                 //.then(data => {
                 // Extract the 'views' property and display it
                 //const viewsValue = data.views;
@@ -198,7 +200,7 @@
                         // const pageViewsValue = data.views;
                         // responseDisplay2.textContent = pageViewsValue
 
-                        .then(res => { res.json().then((a) => { console.log(a) }) })
+                     
             
 
                 // console.log(a)
