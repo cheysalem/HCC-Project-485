@@ -189,24 +189,48 @@
             function updateCounter(type) {
                 fetch('https://visitor-counter.csalem.workers.dev/' + type)
 
-                .then(res => {res.json().then((a)=> console.log(a))})
-                    // .then(res => res.json())
+                    .then(res => { res.json().then((a) => console.log(a)) })
+                // .then(res => res.json())
                 //.then(data => {
                 // Extract the 'views' property and display it
                 //const viewsValue = data.views;
                 //responseDisplay.textContent = viewsValue;
 
+                // NOT WORKING FOR NEW VISITS PER PAGE
+                // const pageViewsValue = data.views;
+                // responseDisplay2.textContent = pageViewsValue
+
+
+
+
+                // console.log(a)
+
+
+            }
+
+            function updateCounter(type) {
+                fetch('https://visitor-counter.csalem.workers.dev/' + type)
+
+                    //.then(res => {res.json().then((a)=> console.log(a))})
+                    .then(res => res.json())
+                    .then(data => {
+                        // Extract the 'views' property and display it
+                        const pageViewsValue = data['page-views'];
+                        responseDisplay.textContent = pageViewsValue;
+
                         // NOT WORKING FOR NEW VISITS PER PAGE
                         // const pageViewsValue = data.views;
                         // responseDisplay2.textContent = pageViewsValue
 
-                     
-            
 
-                // console.log(a)
-               
 
+
+                        console.log(data)
+
+
+                    })
             }
+
 
             sessionStorage.setItem('visit', 'x');
             // 'visit' item persists in storage for the remainder of the user session
