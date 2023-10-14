@@ -207,12 +207,12 @@
                     responseDisplay.textContent = pageViewsValue;
 
                     //  Extract the 'new-visits' property and display it (from workers and workers kv)
-                    const newVisits = data['visits-count'];
+                    const newVisits = data['new-visits'];
                     //print to html page
                     responseDisplay2.textContent = newVisits;
 
                     console.log('careers page-views ' + data['page-views']);
-                    console.log('careers visits ' + data['visits-count']);
+                    console.log('careers visits ' + data['new-visits']);
                 });
         }
 
