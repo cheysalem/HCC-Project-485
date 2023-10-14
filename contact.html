@@ -238,6 +238,68 @@
         </script>
 
 
+<main id="container">
+    <div>
+        <span id="response-display"></span>
+        <h4>Pageviews</h4>
+    </div>
+    <div>
+        <span id="response-display2"></span>
+        <h4>Visits</h4>
+    </div>
+
+    <!-- <p>Response: <span id="response-display2"></span></p> -->
+</main>
+
+
+
+
+<!-- we did... kinda -->
+<script>
+    const pageviewsCount = document.getElementById('pageviews-count');
+    const visitsCount = document.getElementById('visits-count');
+
+    // Assume you have an HTML element with the ID 'response-display'
+    const responseDisplay = document.getElementById('response-display');
+    const responseDisplay2 = document.getElementById('response-display2');
+
+
+    if (sessionStorage.getItem('visit') === null) {
+        // New visit
+        updateCounter('type=response-display');
+    } else {
+        // Pageview
+        updateCounter('type=response-display2');
+    }
+
+
+
+    function updateCounter(type) {
+        fetch('https://visitor-counter.csalem.workers.dev/' + type)
+
+            //.then(res => {res.json().then((a)=> console.log(a))})
+            .then(res => res.json())
+            .then(data => {
+                // Extract the 'page-views' property and display it (from workers and workers kv)
+                const pageViewsValue = data['page-views'];
+                //print out page-views to html page
+                responseDisplay.textContent = pageViewsValue;
+
+                //  Extract the 'new-visits' property and display it (from workers and workers kv)
+                const new_visits = data['new-visits'];
+                //print to html page
+                responseDisplay2.textContent = new_visits;
+
+                // console.log(data)
+
+
+            })
+    }
+
+
+    sessionStorage.setItem('visit', 'x');
+    // 'visit' item persists in storage for the remainder of the user session
+</script>
         <footer class="py-4 " style="background-color: #3D3A3F;">
             <div class="container text-light text-center">
                 <p class="display-5 mb-3" style="color: #F5F2F0 ;">Pebble Village</p>

@@ -1,0 +1,65 @@
+ addEventListener("fetch", (event) => {
+  event.respondWith(
+    handleRequest(event.request).catch(
+      (err) => new Response(err.stack, { status: 500 })
+    )
+  );
+});
+
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+  "Access-Control-Max-Age": "86400",
+};
+
+async function handleRequest(request) {
+  const { pathname } = new URL(request.url);
+  let views = await KV.get("views");
+
+  // If views is not set, initialize it to 0
+  views = views ? parseInt(views) : 0;
+
+  let uniqueVisitors = await KV.get("uniqueVisitors");
+
+  // Initialize uniqueVisitors as an empty set if it doesn't exist
+  if (!uniqueVisitors) {
+    uniqueVisitors = new Set();
+  } else {
+    // Convert stored string to a set
+    uniqueVisitors = new Set(uniqueVisitors.split(","));
+  }
+
+  const visitorId =
+    request.headers.get("CF-Connecting-IP") ||
+    request.headers.get("x-forwarded-for") ||
+    request.headers.get("x-real-ip") ||
+    request.headers.get("remote-addr") ||
+    request.headers.get("x-client-ip") ||
+    request.headers.get("x-proxy-user-ip") ||
+    request.headers.get("true-client-ip");
+
+  if (!uniqueVisitors.has(visitorId)) {
+    uniqueVisitors.add(visitorId);
+
+    // Increment the new visits counter
+    let newVisits = await KV.get("newVisits") || 0;
+    newVisits = parseInt(newVisits) + 1;
+    await KV.put("newVisits", newVisits);
+  }
+
+  await KV.put("uniqueVisitors", Array.from(uniqueVisitors).join(","));
+
+  if (pathname.startsWith("/")) {
+    await KV.put("views", views + 1);
+  }
+
+  return new Response(
+    JSON.stringify({
+      "page-views": views,
+      "new-visits": await KV.get("newVisits") || 0,
+    }),
+    {
+      headers: corsHeaders,
+    }
+  );
+}
