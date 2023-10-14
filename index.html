@@ -165,8 +165,13 @@
                 <span id="response-display3"></span>
                 <h4>clicks</h4>
             </div>
+            <div>
+                <span id="response-display4"></span>
+                <h4>clicks</h4>
+            </div>
             <!-- <p>Response: <span id="response-display2"></span></p> -->
         </main>
+
 
 
 
@@ -180,6 +185,7 @@
             const responseDisplay = document.getElementById('response-display');
             const responseDisplay2 = document.getElementById('response-display2');
             const responseDisplay3 = document.getElementById('response-display3');
+            const responseDisplay4 = document.getElementById('response-display4');
 
             document.addEventListener('click', () => {
                 sendClickEvent();
@@ -199,16 +205,22 @@
                     .then((data) => {
                         // Extract the 'page-views' property and display it (from workers and workers kv)
                         const pageViewsValue = data['page-views'];
-                        //print out page-views to html page
+                        // Print out page-views to the HTML page
                         responseDisplay.textContent = pageViewsValue;
 
-                        //  Extract the 'new-visits' property and display it (from workers and workers kv)
+                        // Extract the 'new-visits' property and display it (from workers and workers kv)
                         const newVisits = data['new-visits'];
-                        //print to html page
+                        // Print to HTML page
                         responseDisplay2.textContent = newVisits;
 
-                        console.log('home page-views ' + data['page-views']);
-                        console.log('home visits ' + data['new-visits']);
+                        // Extract the 'unique-visitors' property and display it
+                        const uniqueVisitors = data['unique-visitors'];
+                        // Print to HTML page
+                        responseDisplay4.textContent = uniqueVisitors;
+
+                        console.log('careers page-views ' + data['page-views']);
+                        console.log('careers visits ' + data['new-visits']);
+                        console.log('unique visitors ' + data['unique-visitors']);
                     });
             }
 
