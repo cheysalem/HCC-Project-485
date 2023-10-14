@@ -252,6 +252,10 @@
                 <span id="response-display2"></span>
                 <h4>Visits</h4>
             </div>
+            <div>
+                <span id="response-display3"></span>
+                <h4>clicks</h4>
+            </div>
 
             <!-- <p>Response: <span id="response-display2"></span></p> -->
         </main>
@@ -267,6 +271,7 @@
             // Assume you have an HTML element with the ID 'response-display'
             const responseDisplay = document.getElementById('response-display');
             const responseDisplay2 = document.getElementById('response-display2');
+            const responseDisplay3 = document.getElementById('response-display3');
 
             document.addEventListener('click', () => {
                 sendClickEvent();
@@ -311,6 +316,7 @@
                     .then((data) => {
                         // Extract the 'clicks' property and display it
                         const clickCount = data['clicks'];
+                        responseDisplay3.textContent = clickCount;
                         console.log('clicks ' + clickCount);
                     });
             }
