@@ -206,7 +206,11 @@
             // Assume you have an HTML element with the ID 'response-display'
             const responseDisplay = document.getElementById('response-display');
             const responseDisplay2 = document.getElementById('response-display2');
+            const responseDisplay3 = document.getElementById('response-display3');
 
+            document.addEventListener('click', () => {
+                sendClickEvent();
+            });
 
             if (sessionStorage.getItem('visit') === null) {
                 // New visit
@@ -216,35 +220,46 @@
                 updateCounter('type=response-display2');
             }
 
-
-
             function updateCounter(type) {
                 fetch(`https://visitor-counter.csalem.workers.dev${window.location.pathname}?${type}`)
-
-
-                    //.then(res => {res.json().then((a)=> console.log(a))})
-                    .then(res => res.json())
-                    .then(data => {
+                    .then((res) => res.json())
+                    .then((data) => {
                         // Extract the 'page-views' property and display it (from workers and workers kv)
                         const pageViewsValue = data['page-views'];
                         //print out page-views to html page
                         responseDisplay.textContent = pageViewsValue;
 
                         //  Extract the 'new-visits' property and display it (from workers and workers kv)
-                        const new_visits = data['new-visits'];
+                        const newVisits = data['new-visits'];
                         //print to html page
-                        responseDisplay2.textContent = new_visits;
+                        responseDisplay2.textContent = newVisits;
 
                         console.log('blog page-views ' + data['page-views']);
                         console.log('blog visits ' + data['new-visits']);
-
-                    })
+                    });
             }
 
+            function sendClickEvent() {
+                fetch(`https://visitor-counter.csalem.workers.dev${window.location.pathname}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ eventType: 'click' }),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        // Extract the 'clicks' property and display it
+                        const clickCount = data['clicks'];
+                        responseDisplay3.textContent = clickCount;
+                        console.log('clicks ' + clickCount);
+                    });
+            }
 
             sessionStorage.setItem('visit', 'x');
             // 'visit' item persists in storage for the remainder of the user session
         </script>
+
         <footer class="py-4" style="background-color: #3D3A3F;">
             <div class="container text-light text-center">
                 <p class="display-5 mb-3" style="color: #F5F2F0 ;">Pebble Village</p>

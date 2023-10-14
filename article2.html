@@ -12,8 +12,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
- <!-- our custom analysis script -->
- <script src="./js/analysis.js"></script>
+    <!-- our custom analysis script -->
+    <script src="./js/analysis.js"></script>
 
 </head>
 
@@ -26,12 +26,12 @@
         <div class="container">
             <!-- add name and logo  mb-0 = marging h1: bold-->
 
-           <!-- class = make it a display inline block -->
-           <!-- class = make it a display inline block -->
-           <a href="./index.html" class="navbar-brand mb-0 h1 navbar-brand-img">
-            <img id="logo" class="d-inline-block align-center" src="./assets/Pebble_Village.png" />
-            Pebble Village
-        </a>
+            <!-- class = make it a display inline block -->
+            <!-- class = make it a display inline block -->
+            <a href="./index.html" class="navbar-brand mb-0 h1 navbar-brand-img">
+                <img id="logo" class="d-inline-block align-center" src="./assets/Pebble_Village.png" />
+                Pebble Village
+            </a>
             <!-- nav bar button for smaller screens and toggle feature -->
             <!-- aria-label when hovered over says whats happening -->
             <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
@@ -106,12 +106,14 @@
             <p class="fw-light ">
 
                 At Pebble Village daycare, we understand that pet rocks aren't just rocks; they're cherished companions
-                that deserve the best care. In this article, we delve into the art of rock care and how Pebble Village is
+                that deserve the best care. In this article, we delve into the art of rock care and how Pebble Village
+                is
                 committed to ensuring the well-being of your pet rocks.
 
             <h5 class="fw-semibold pb-2 pt-5 "> A Guide to Rock Care</h5>
 
-            Just like any living creature, pet rocks require proper care and attention. At Pebble Village, we've mastered
+            Just like any living creature, pet rocks require proper care and attention. At Pebble Village, we've
+            mastered
             the art of rock care, starting with regular gentle cleanings. Using soft brushes and eco-friendly cleansers,
             our experts ensure that your pet rocks remain pristine and free of dirt.
             <h5 class="fw-semibold pb-2 pt-5">
@@ -180,7 +182,11 @@
         // Assume you have an HTML element with the ID 'response-display'
         const responseDisplay = document.getElementById('response-display');
         const responseDisplay2 = document.getElementById('response-display2');
+        const responseDisplay3 = document.getElementById('response-display3');
 
+        document.addEventListener('click', () => {
+            sendClickEvent();
+        });
 
         if (sessionStorage.getItem('visit') === null) {
             // New visit
@@ -190,37 +196,47 @@
             updateCounter('type=response-display2');
         }
 
-
-
         function updateCounter(type) {
             fetch(`https://visitor-counter.csalem.workers.dev${window.location.pathname}?${type}`)
-
-
-                //.then(res => {res.json().then((a)=> console.log(a))})
-                .then(res => res.json())
-                .then(data => {
+                .then((res) => res.json())
+                .then((data) => {
                     // Extract the 'page-views' property and display it (from workers and workers kv)
                     const pageViewsValue = data['page-views'];
                     //print out page-views to html page
                     responseDisplay.textContent = pageViewsValue;
 
                     //  Extract the 'new-visits' property and display it (from workers and workers kv)
-                    const new_visits = data['new-visits'];
+                    const newVisits = data['new-visits'];
                     //print to html page
-                    responseDisplay2.textContent = new_visits;
+                    responseDisplay2.textContent = newVisits;
 
                     console.log('article 2 page-views ' + data['page-views']);
                     console.log('article 2 visits ' + data['new-visits']);
-
-
-                })
+                });
         }
 
+        function sendClickEvent() {
+            fetch(`https://visitor-counter.csalem.workers.dev${window.location.pathname}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ eventType: 'click' }),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    // Extract the 'clicks' property and display it
+                    const clickCount = data['clicks'];
+                    responseDisplay3.textContent = clickCount;
+                    console.log('clicks ' + clickCount);
+                });
+        }
 
         sessionStorage.setItem('visit', 'x');
         // 'visit' item persists in storage for the remainder of the user session
     </script>
-    
+
+
     <footer class="footer py-4 mt-3" style="background-color: #534D56;">
         <div class="container text-light text-center">
             <p class="display-5 mb-3">Pebble Village</p>
