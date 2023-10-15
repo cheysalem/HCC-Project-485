@@ -218,9 +218,9 @@
                         // Print to HTML page
                         responseDisplay4.textContent = uniqueVisitors;
 
-                        console.log('careers page-views ' + data['page-views']);
-                        console.log('careers visits ' + data['new-visits']);
-                        console.log('unique visitors ' + data['unique-visitors']);
+                        // console.log('index page-views ' + data['page-views']);
+                        console.log('index visits ' + data['new-visits']);
+                        console.log('index unique visitors ' + data['unique-visitors']);
                     });
             }
 
@@ -229,6 +229,7 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'clicks': mouseClicks.toString(), // Send the mouse clicks count in the headers
                     },
                     body: JSON.stringify({ eventType: 'click' }),
                 })
