@@ -229,7 +229,6 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'clicks': mouseClicks.toString(), // Send the mouse clicks count in the headers
                     },
                     body: JSON.stringify({ eventType: 'click' }),
                 })
