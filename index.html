@@ -203,10 +203,10 @@
                 fetch(`https://visitor-counter.csalem.workers.dev${window.location.pathname}?${type}`)
                     .then((res) => res.json())
                     .then((data) => {
-                        // Extract the 'page-views' property and display it (from workers and workers kv)
-                        const pageViewsValue = data['page-views'];
-                        // Print out page-views to the HTML page
-                        responseDisplay.textContent = pageViewsValue;
+                        // // Extract the 'page-views' property and display it (from workers and workers kv)
+                        // const pageViewsValue = data['page-views'];
+                        // // Print out page-views to the HTML page
+                        // responseDisplay.textContent = pageViewsValue;
 
                         // Extract the 'new-visits' property and display it (from workers and workers kv)
                         const newVisits = data['new-visits'];
