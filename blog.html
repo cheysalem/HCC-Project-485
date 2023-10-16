@@ -237,9 +237,9 @@
                         // responseDisplay.textContent = pageViewsValue;
 
                         //  Extract the 'new-visits' property and display it (from workers and workers kv)
-                        const newVisits = data['new-visits'];
+                        // const newVisits = data['new-visits'];
                         //print to html page
-                        responseDisplay2.textContent = newVisits;
+                        // responseDisplay2.textContent = newVisits;
 
                         console.log('blog page-views ' + data['page-views']);
                         console.log('blog visits ' + data['new-visits']);
@@ -258,7 +258,7 @@
                     .then((data) => {
                         // Extract the 'clicks' property and display it
                         const clickCount = data['clicks'];
-                        responseDisplay3.textContent = clickCount;
+                        // responseDisplay3.textContent = clickCount;
                         console.log('clicks ' + clickCount);
                     });
             }
