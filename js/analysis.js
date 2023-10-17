@@ -81,6 +81,7 @@
       let vID = morsel.dID;
       //save visitor data setCookie
       setCookie("visitorID", vID, 150);
+      console.log("visitor id set: "+ vID);
     }
   } 
 
