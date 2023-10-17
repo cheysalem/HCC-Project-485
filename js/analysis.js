@@ -88,7 +88,6 @@ const id = Date.now().toString(36) + Math.random().toString(36).substring(2);
   //if a cookie exists already it will avoid overwriting it
   //to maintain a single fingerprint per visitor
   function checkCookie() {
-    console.log("here");
     let did = getCookie("visitorID");
     if (document.cookie && did != "") {
       //dont do anything
