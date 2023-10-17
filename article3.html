@@ -12,6 +12,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
+    <!-- our custom analysis script -->
+    <script src="./js/analysis.js"></script>
 
 </head>
 
@@ -24,11 +26,11 @@
         <div class="container">
             <!-- add name and logo  mb-0 = marging h1: bold-->
 
-         <!-- class = make it a display inline block -->
-         <a href="./index.html" class="navbar-brand mb-0 h1 navbar-brand-img">
-            <img id="logo" class="d-inline-block align-center" src="./assets/Pebble_Village.png" />
-            Pebble Village
-        </a>
+            <!-- class = make it a display inline block -->
+            <a href="./index.html" class="navbar-brand mb-0 h1 navbar-brand-img">
+                <img id="logo" class="d-inline-block align-center" src="./assets/Pebble_Village.png" />
+                Pebble Village
+            </a>
             <!-- nav bar button for smaller screens and toggle feature -->
             <!-- aria-label when hovered over says whats happening -->
             <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
@@ -102,12 +104,13 @@
 
             <p class="fw-light">
 
-                In a world of conventional pet care, Pebble Village daycare emerges as a unique haven that celebrates the
+                In a world of conventional pet care, Pebble Village daycare emerges as a unique haven that celebrates
+                the
                 extraordinary world of pet rocks. In this article, we explore how Pebble Village stands apart by
                 redefining pet care through unwavering passion and innovative approaches.
 
 
- 
+
             <h5 class="fw-semibold pb-2 pt-5 "> The Heart Behind Pebble Village
             </h5>
             At the core of Pebble Village is a deep love for pet rocks. Our founders, long-time enthusiasts of these
@@ -162,6 +165,91 @@
 
         </div>
     </center>
+
+    <!-- <main id="container"> -->
+        <!-- <div>
+            <span id="response-display"></span>
+            <h4>Pageviews</h4>
+        </div> -->
+        <!-- <div>
+            <span id="response-display2"></span>
+            <h4>Page Visits</h4>
+        </div>
+        <div>
+            <span id="response-display3"></span>
+            <h4>Clicks</h4>
+        </div> -->
+        <!-- <div>
+            <span id="response-display4"></span>
+            <h4>Unique Visitors</h4>
+        </div> -->
+        <!-- <p>Response: <span id="response-display2"></span></p> -->
+    <!-- </main> -->
+
+
+
+
+    <!-- we did... kinda -->
+    <script>
+        const pageviewsCount = document.getElementById('pageviews-count');
+        const visitsCount = document.getElementById('visits-count');
+
+        // Assume you have an HTML element with the ID 'response-display'
+        const responseDisplay = document.getElementById('response-display');
+        const responseDisplay2 = document.getElementById('response-display2');
+        const responseDisplay3 = document.getElementById('response-display3');
+
+        document.addEventListener('click', () => {
+            sendClickEvent();
+        });
+
+        if (sessionStorage.getItem('visit') === null) {
+            // New visit
+            updateCounter('type=response-display');
+        } else {
+            // Pageview
+            updateCounter('type=response-display2');
+        }
+
+        function updateCounter(type) {
+            fetch(`https://visitor-counter.csalem.workers.dev${window.location.pathname}?${type}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    // // Extract the 'page-views' property and display it (from workers and workers kv)
+                    // const pageViewsValue = data['page-views'];
+                    // //print out page-views to html page
+                    // responseDisplay.textContent = pageViewsValue;
+
+                    //  Extract the 'new-visits' property and display it (from workers and workers kv)
+                    // const newVisits = data['new-visits'];
+                    //print to html page
+                    // responseDisplay2.textContent = newVisits;
+
+                    console.log('article 3 page-views ' + data['page-views']);
+                    console.log('article 3 visits ' + data['new-visits']);
+                });
+        }
+
+        function sendClickEvent() {
+            fetch(`https://visitor-counter.csalem.workers.dev${window.location.pathname}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ eventType: 'click' }),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    // Extract the 'clicks' property and display it
+                    const clickCount = data['clicks'];
+                    // responseDisplay3.textContent = clickCount;
+                    console.log('clicks ' + clickCount);
+                });
+        }
+
+        sessionStorage.setItem('visit', 'x');
+        // 'visit' item persists in storage for the remainder of the user session
+    </script>
 
 
     <footer class="footer py-4 mt-3" style="background-color: #534D56;">

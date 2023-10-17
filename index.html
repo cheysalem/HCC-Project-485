@@ -153,17 +153,25 @@
     <div class="pb-5 pt-2 mt-2"></div> -->
 
         <main id="container">
-            <div>
+            <!-- <div>
                 <span id="response-display"></span>
                 <h4>Pageviews</h4>
+            </div> -->
+            <!-- <div>
+                <span id="response-display2"></span>
+                <h4>Page Visits</h4>
             </div>
             <div>
-                <span id="response-display2"></span>
-                <h4>Visits</h4>
+                <span id="response-display3"></span>
+                <h4>Clicks</h4>
+            </div> -->
+            <div>
+                <span id="response-display4"></span>
+                <h4>Unique Visitors</h4>
             </div>
-
             <!-- <p>Response: <span id="response-display2"></span></p> -->
         </main>
+
 
 
 
@@ -176,7 +184,12 @@
             // Assume you have an HTML element with the ID 'response-display'
             const responseDisplay = document.getElementById('response-display');
             const responseDisplay2 = document.getElementById('response-display2');
+            const responseDisplay3 = document.getElementById('response-display3');
+            const responseDisplay4 = document.getElementById('response-display4');
 
+            document.addEventListener('click', () => {
+                sendClickEvent();
+            });
 
             if (sessionStorage.getItem('visit') === null) {
                 // New visit
@@ -186,30 +199,47 @@
                 updateCounter('type=response-display2');
             }
 
-
-
             function updateCounter(type) {
-                fetch('https://visitor-counter.csalem.workers.dev/' + type)
+                fetch(`https://visitor-counter.csalem.workers.dev${window.location.pathname}?${type}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        // // Extract the 'page-views' property and display it (from workers and workers kv)
+                        // const pageViewsValue = data['page-views'];
+                        // // Print out page-views to the HTML page
+                        // responseDisplay.textContent = pageViewsValue;
 
-                    //.then(res => {res.json().then((a)=> console.log(a))})
-                    .then(res => res.json())
-                    .then(data => {
-                        // Extract the 'page-views' property and display it (from workers and workers kv)
-                        const pageViewsValue = data['page-views'];
-                        //print out page-views to html page
-                        responseDisplay.textContent = pageViewsValue;
+                        // Extract the 'new-visits' property and display it (from workers and workers kv)
+                        // const newVisits = data['new-visits'];
+                        // Print to HTML page
+                        // responseDisplay2.textContent = newVisits;
 
-                        //  Extract the 'new-visits' property and display it (from workers and workers kv)
-                        const new_visits = data['new-visits'];
-                        //print to html page
-                        responseDisplay2.textContent = new_visits;
+                        // Extract the 'unique-visitors' property and display it
+                        const uniqueVisitors = data['unique-visitors'];
+                        // Print to HTML page
+                        responseDisplay4.textContent = uniqueVisitors;
 
-                        // console.log(data)
-
-
-                    })
+                        // console.log('index page-views ' + data['page-views']);
+                        console.log('index visits ' + data['new-visits']);
+                        console.log('index unique visitors ' + data['unique-visitors']);
+                    });
             }
 
+            function sendClickEvent() {
+                fetch(`https://visitor-counter.csalem.workers.dev${window.location.pathname}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ eventType: 'click' }),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        // Extract the 'clicks' property and display it
+                        const clickCount = data['clicks'];
+                        // responseDisplay3.textContent = clickCount;
+                        console.log('clicks ' + clickCount);
+                    });
+            }
 
             sessionStorage.setItem('visit', 'x');
             // 'visit' item persists in storage for the remainder of the user session

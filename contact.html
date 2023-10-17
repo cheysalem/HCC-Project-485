@@ -15,6 +15,9 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
 
+    <!-- our custom analysis script -->
+    <script src="./js/analysis.js"></script>
+
 </head>
 
 <body style="height: fit-content;">
@@ -84,6 +87,7 @@
         }
 
         @media only screen and (max-width:600px) {
+
             /*the inner element, not the container*/
             #contact {
                 width: 100%;
@@ -98,6 +102,7 @@
                 */
             }
         }
+
         */
     </style>
     <div class="wrapper">
@@ -237,6 +242,90 @@
             });
         </script>
 
+        <!-- <main id="container">
+            <div>
+        <span id="response-display"></span>
+        <h4>Pageviews</h4>
+    </div>
+            <div>
+                <span id="response-display2"></span>
+                <h4>Page Visits</h4>
+            </div>
+            <div>
+                <span id="response-display3"></span>
+                <h4>Clicks</h4>
+            </div>
+            <div>
+        <span id="response-display4"></span>
+        <h4>Unique Visitors</h4>
+    </div>
+            <p>Response: <span id="response-display2"></span></p>
+        </main>
+ -->
+
+
+
+        <!-- we did... kinda -->
+        <script>
+            const pageviewsCount = document.getElementById('pageviews-count');
+            const visitsCount = document.getElementById('visits-count');
+
+            // Assume you have an HTML element with the ID 'response-display'
+            const responseDisplay = document.getElementById('response-display');
+            const responseDisplay2 = document.getElementById('response-display2');
+            const responseDisplay3 = document.getElementById('response-display3');
+
+            document.addEventListener('click', () => {
+                sendClickEvent();
+            });
+
+            if (sessionStorage.getItem('visit') === null) {
+                // New visit
+                updateCounter('type=response-display');
+            } else {
+                // Pageview
+                updateCounter('type=response-display2');
+            }
+
+            function updateCounter(type) {
+                fetch(`https://visitor-counter.csalem.workers.dev${window.location.pathname}?${type}`)
+                    .then((res) => res.json())
+                    .then((data) => {
+                        // // Extract the 'page-views' property and display it (from workers and workers kv)
+                        // const pageViewsValue = data['page-views'];
+                        // //print out page-views to html page
+                        // responseDisplay.textContent = pageViewsValue;
+
+                        //  Extract the 'new-visits' property and display it (from workers and workers kv)
+                        // const newVisits = data['new-visits'];
+                        //print to html page
+                        // responseDisplay2.textContent = newVisits;
+
+                        console.log('contact page-views ' + data['page-views']);
+                        console.log('contact visits ' + data['new-visits']);
+                    });
+            }
+
+            function sendClickEvent() {
+                fetch(`https://visitor-counter.csalem.workers.dev${window.location.pathname}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ eventType: 'click' }),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        // Extract the 'clicks' property and display it
+                        const clickCount = data['clicks'];
+                        // responseDisplay3.textContent = clickCount;
+                        console.log('clicks ' + clickCount);
+                    });
+            }
+
+            sessionStorage.setItem('visit', 'x');
+            // 'visit' item persists in storage for the remainder of the user session
+        </script>
 
         <footer class="py-4 " style="background-color: #3D3A3F;">
             <div class="container text-light text-center">
