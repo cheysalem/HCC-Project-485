@@ -71,6 +71,7 @@
   //if a cookie exists already it will avoid overwriting it
   //to maintain a single fingerprint per visitor
   function checkCookie() {
+    console.log("check cookie");
     let did = getCookie("visitorID");
     if (document.cookie && did != "") {
       //dont do anything
