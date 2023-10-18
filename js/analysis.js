@@ -71,14 +71,17 @@
   //if a cookie exists already it will avoid overwriting it
   //to maintain a single fingerprint per visitor
   function checkCookie() {
-<<<<<<< HEAD
-    console.log("check cookie");
-=======
-<<<<<<< HEAD
-    console.log("here");
-=======
->>>>>>> parent of dcee3fa (check cookie log)
->>>>>>> 1344c6c (Revert "check cookie log")
+//  HEAD
+// <<<<<<< HEAD
+//     console.log("check cookie");
+// =======
+// <<<<<<< HEAD
+//     console.log("here");
+// =======
+// >>>>>>> parent of dcee3fa (check cookie log)
+// >>>>>>> 1344c6c (Revert "check cookie log")
+// =======
+// >>>>>>> parent of dcee3fa (check cookie log)
     let did = getCookie("visitorID");
     if (document.cookie && did != "") {
       //dont do anything
