@@ -27,7 +27,7 @@
           "url" : "https://pebblevillage.com/",
           "logo" : "https://pebblevillage.com/assets/Pebble_Village.jpg",
           "datePublished": "2023-08-24",
-          "dateModified": "2023-10-07"
+          "dateModified": "2023-10-19"
         }
     </script>
 </head>
@@ -237,6 +237,34 @@
                     </div>
                 </div>
 
+                <!-- Popup content -->
+                <div class="popup" id="mopPop" style="font-family: Montserrat;">
+                    <h2>Please enter your payment information</h2>
+                    <form>
+                        <label for="symbol">Card Symbol:</label>
+                        <input type="text" id="symbol" name="symbol" required>
+                        <br>
+                        <p>
+
+                        </p>
+                        <label for="date">Renew Date:</label>
+                        <input type="text" id="date" name="date" required>
+                        <br>
+                        <p>
+
+                        </p>
+                        <label for="num">Lottery Number:</label>
+                        <input type="text" id="num" name="num" required>
+                        <br>
+                        <p>
+
+                        </p>
+                        <button type="button" onclick="closePopup()">Cancel</button>
+                        <button type="button" onclick="closePopup()">Submit</button>
+                    </form>
+                </div>
+
+
             </div>
 
         </div>
@@ -341,7 +369,14 @@
         // 'visit' item persists in storage for the remainder of the user session
     </script>
 
-    <!-- Ending of Jonathan's code-->
+    <div style = "font-family: Montserrat;">
+        <p>
+                Website published: 8/24/2023
+        </p>
+        <p>
+                Last modified: 10/19/2023
+        </p>
+    </div>
 
     <footer class="py-4 mt-3  " style="background-color: #3D3A3F;" id="priceFooter">
         <div class="container text-light text-center">
