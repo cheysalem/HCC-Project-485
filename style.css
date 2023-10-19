@@ -132,9 +132,9 @@ footer{
         text-align: center;
         line-height: 34px;
         position: absolute;
-        top: 85%;
+        top: 95%;
         left: 50%;
-        transform: translate(-50%, -85%);
+        transform: translate(-50%, -95%);
         opacity: 0;
 
         transition: opacity 0.4s ease;
@@ -148,11 +148,12 @@ footer{
     }
 
     .inner-content li {
-        margin-bottom: -20px;
-        margin-left: 45px;
+        /* margin-bottom: -20px; */
+        margin-left: 30px;
         position: relative;
         top: -30px;
         text-align: left;
+        line-height: 30px;
     }
 
     .inner-content p {
@@ -182,6 +183,7 @@ footer{
         /* z-index: 2; */
         border: 2px solid #28C880;
         clear: both;
+        place-items: center;
     }
 
     .button {

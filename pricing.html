@@ -237,34 +237,6 @@
                     </div>
                 </div>
 
-                <!-- Popup content -->
-                <div class="popup" id="mopPop" style="font-family: Montserrat;">
-                    <h2>Please enter your payment information</h2>
-                    <form>
-                        <label for="symbol">Card Symbol:</label>
-                        <input type="text" id="symbol" name="symbol" required>
-                        <br>
-                        <p>
-
-                        </p>
-                        <label for="date">Renew Date:</label>
-                        <input type="text" id="date" name="date" required>
-                        <br>
-                        <p>
-
-                        </p>
-                        <label for="num">Lottery Number:</label>
-                        <input type="text" id="num" name="num" required>
-                        <br>
-                        <p>
-
-                        </p>
-                        <button type="button" onclick="closePopup()">Cancel</button>
-                        <button type="button" onclick="closePopup()">Submit</button>
-                    </form>
-                </div>
-
-
             </div>
 
         </div>
@@ -274,7 +246,7 @@
     <script>
         function openPopup() {
             //document.getElementById('mopPop').style.transition = "all 250ms ease-in";
-            document.getElementById('mopPop').style.display = 'block';
+            document.getElementById('mopPop').style.display = 'grid';
         }
 
         function closePopup() {
