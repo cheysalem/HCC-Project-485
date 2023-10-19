@@ -132,9 +132,9 @@ footer{
         text-align: center;
         line-height: 34px;
         position: absolute;
-        top: 95%;
+        top: 87%;
         left: 50%;
-        transform: translate(-50%, -95%);
+        transform: translate(-50%, -87%);
         opacity: 0;
 
         transition: opacity 0.4s ease;
@@ -153,7 +153,7 @@ footer{
         position: relative;
         top: -30px;
         text-align: left;
-        line-height: 30px;
+        line-height: 40px;
     }
 
     .inner-content p {
@@ -171,19 +171,18 @@ footer{
     .popup {
         display: none;
         position: relative; /*formerly fixed*/
-        height: 275px; /*275*/
+        /* height: 275px; 275 */
         width: 100%;
         /* top: 50%; */
         /* left: 50%; */
         color: #FFFFFF;
         /* transform: translate(-50%, -50%); */
         background-color: #4F80FC;
-        padding: -140px; /*20px*/
+        padding: 20px; /*20px*/
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
         /* z-index: 2; */
         border: 2px solid #28C880;
         clear: both;
-        place-items: center;
     }
 
     .button {
